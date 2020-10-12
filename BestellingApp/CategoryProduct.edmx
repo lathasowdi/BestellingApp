@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BestellingenAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bestelling">
+          <Key>
+            <PropertyRef Name="BestellingID" />
+          </Key>
+          <Property Name="BestellingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatumOpgemaakt" Type="datetime" />
+          <Property Name="PersoneelslidID" Type="int" />
+          <Property Name="LeverancierID" Type="int" />
+          <Property Name="KlantID" Type="int" />
+        </EntityType>
+        <EntityType Name="BestellingProduct">
+          <Key>
+            <PropertyRef Name="BestellingProductID" />
+          </Key>
+          <Property Name="BestellingProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BestellingID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Aantal" Type="int" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategorieNaam" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Functie">
+          <Key>
+            <PropertyRef Name="FunctieID" />
+          </Key>
+          <Property Name="FunctieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctieTitel" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Klant">
+          <Key>
+            <PropertyRef Name="KlantID" />
+          </Key>
+          <Property Name="KlantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voornaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Achternaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Straatnaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huisnummer" Type="int" />
+          <Property Name="Bus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gemeente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefoonnummer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emailadres" Type="nvarchar" MaxLength="50" />
+          <Property Name="AangemaaktOp" Type="datetime" />
+          <Property Name="Opmerking" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Leverancier">
+          <Key>
+            <PropertyRef Name="LeverancierID" />
+          </Key>
+          <Property Name="LeverancierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contactpersoon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefoonnummer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emailadres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Straatnaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huisnummer" Type="int" />
+          <Property Name="Bus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gemeente" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personeelslid">
+          <Key>
+            <PropertyRef Name="PersoneelslidID" />
+          </Key>
+          <Property Name="PersoneelslidID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voornaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Achternaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="FunctieID" Type="int" />
+          <Property Name="Usernaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Wachtwoord" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naam" Type="nvarchar" MaxLength="50" />
+          <Property Name="InKoopprijs" Type="float" />
+          <Property Name="Marge" Type="float" />
+          <Property Name="Eenheid" Type="nvarchar" MaxLength="50" />
+          <Property Name="BTW" Type="float" />
+          <Property Name="LeverancierID" Type="int" />
+          <Property Name="CategorieID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="BestellingenAppModelStoreContainer">
+          <EntitySet Name="Bestelling" EntityType="Self.Bestelling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BestellingProduct" EntityType="Self.BestellingProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Functie" EntityType="Self.Functie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klant" EntityType="Self.Klant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leverancier" EntityType="Self.Leverancier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personeelslid" EntityType="Self.Personeelslid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BestellingenAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bestelling">
+          <Key>
+            <PropertyRef Name="BestellingID" />
+          </Key>
+          <Property Name="BestellingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatumOpgemaakt" Type="DateTime" Precision="3" />
+          <Property Name="PersoneelslidID" Type="Int32" />
+          <Property Name="LeverancierID" Type="Int32" />
+          <Property Name="KlantID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BestellingProduct">
+          <Key>
+            <PropertyRef Name="BestellingProductID" />
+          </Key>
+          <Property Name="BestellingProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BestellingID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Aantal" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategorieNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Functie">
+          <Key>
+            <PropertyRef Name="FunctieID" />
+          </Key>
+          <Property Name="FunctieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctieTitel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Klant">
+          <Key>
+            <PropertyRef Name="KlantID" />
+          </Key>
+          <Property Name="KlantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Achternaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Straatnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huisnummer" Type="Int32" />
+          <Property Name="Bus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefoonnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AangemaaktOp" Type="DateTime" Precision="3" />
+          <Property Name="Opmerking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Leverancier">
+          <Key>
+            <PropertyRef Name="LeverancierID" />
+          </Key>
+          <Property Name="LeverancierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contactpersoon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefoonnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Straatnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huisnummer" Type="Int32" />
+          <Property Name="Bus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personeelslid">
+          <Key>
+            <PropertyRef Name="PersoneelslidID" />
+          </Key>
+          <Property Name="PersoneelslidID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Achternaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FunctieID" Type="Int32" />
+          <Property Name="Usernaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Wachtwoord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InKoopprijs" Type="Double" />
+          <Property Name="Marge" Type="Double" />
+          <Property Name="Eenheid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BTW" Type="Double" />
+          <Property Name="LeverancierID" Type="Int32" />
+          <Property Name="CategorieID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="BestellingenAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bestelling" EntityType="Self.Bestelling" />
+          <EntitySet Name="BestellingProduct" EntityType="Self.BestellingProduct" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Functie" EntityType="Self.Functie" />
+          <EntitySet Name="Klant" EntityType="Self.Klant" />
+          <EntitySet Name="Leverancier" EntityType="Self.Leverancier" />
+          <EntitySet Name="Personeelslid" EntityType="Self.Personeelslid" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BestellingenAppModelStoreContainer" CdmEntityContainer="BestellingenAppEntities">
+          <EntitySetMapping Name="Bestelling">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Bestelling">
+              <MappingFragment StoreEntitySet="Bestelling">
+                <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+                <ScalarProperty Name="DatumOpgemaakt" ColumnName="DatumOpgemaakt" />
+                <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BestellingProduct">
+            <EntityTypeMapping TypeName="BestellingenAppModel.BestellingProduct">
+              <MappingFragment StoreEntitySet="BestellingProduct">
+                <ScalarProperty Name="BestellingProductID" ColumnName="BestellingProductID" />
+                <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Aantal" ColumnName="Aantal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="CategorieNaam" ColumnName="CategorieNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Functie">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Functie">
+              <MappingFragment StoreEntitySet="Functie">
+                <ScalarProperty Name="FunctieID" ColumnName="FunctieID" />
+                <ScalarProperty Name="FunctieTitel" ColumnName="FunctieTitel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klant">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Klant">
+              <MappingFragment StoreEntitySet="Klant">
+                <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+                <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+                <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+                <ScalarProperty Name="Bus" ColumnName="Bus" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+                <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
+                <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+                <ScalarProperty Name="AangemaaktOp" ColumnName="AangemaaktOp" />
+                <ScalarProperty Name="Opmerking" ColumnName="Opmerking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leverancier">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Leverancier">
+              <MappingFragment StoreEntitySet="Leverancier">
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="Contactpersoon" ColumnName="Contactpersoon" />
+                <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
+                <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+                <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+                <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+                <ScalarProperty Name="Bus" ColumnName="Bus" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personeelslid">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Personeelslid">
+              <MappingFragment StoreEntitySet="Personeelslid">
+                <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+                <ScalarProperty Name="FunctieID" ColumnName="FunctieID" />
+                <ScalarProperty Name="Usernaam" ColumnName="Usernaam" />
+                <ScalarProperty Name="Wachtwoord" ColumnName="Wachtwoord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="BestellingenAppModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="InKoopprijs" ColumnName="InKoopprijs" />
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="Eenheid" ColumnName="Eenheid" />
+                <ScalarProperty Name="BTW" ColumnName="BTW" />
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
