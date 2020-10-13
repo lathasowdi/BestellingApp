@@ -3,3 +3,10 @@ Vandaag heb ik de database gemaakt en tabels gemaakt.
 Ik heb ook voor de tabels data ingegeven.
 Ik heb a project gemaakt in WPF.
 Ik ben nu bezig met usernaam en wachtwoord verifieren.
+
+oktober 13 2020
+created separate forms for klantAdd, klantEdit and klantDelete.
+it is working.
+created separate forms for Leverancier.
+partially completed login parts.
+begin met main menu.
