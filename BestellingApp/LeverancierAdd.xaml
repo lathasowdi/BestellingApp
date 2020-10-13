@@ -1,0 +1,48 @@
+﻿<Window x:Class="BestellingApp.LeverancierAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BestellingApp"
+        mc:Ignorable="d"
+        Title="LeverancierAdd" Height="450" Width="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name ="lblContactperson"  Content="CONTACTPERSON" Width="110"/>
+                <TextBox Name ="tbContactperson" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblTelefoon" Content="TELEFOON" Width="110" />
+                <TextBox Name ="tbTelefoon" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblEmail" Content="E-MAIL" Width="110" />
+                <TextBox Name ="tbEmail" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblStraatnaam" Content="STRAATNAAM" Width="110" />
+                <TextBox Name ="tbStraatnaam" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblHuisnummer" Content="HUISNUMMER" Width="110" />
+                <TextBox Name ="tbHuisnummer" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblBus" Content="BUS" Width="110" />
+                <TextBox Name ="tbBus" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblpostcode" Content="POSTCODE" Width="110" />
+                <TextBox Name ="tbpostcode" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblGemeente" Content="GEMEENTE" Width="110" />
+                <TextBox Name ="tbGemeente" Width="200"/>
+            </StackPanel>
+            <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

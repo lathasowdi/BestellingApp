@@ -1,27 +1,15 @@
-﻿<Window x:Class="BestellingApp.LeverancierBeheer"
+﻿<Window x:Class="BestellingApp.LeverancierEdit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LeverancierBeheer" Height="450" Width="800">
+        Title="LeverancierEdit" Height="450" Width="800">
     <Grid>
-        
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <ListBox x:Name="lbOef5" Width="200">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <Image Width="20" Height="20" Source="{Binding GetSource}"/>
-                            <TextBlock Text="{Binding Voornaam}"/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding Achternaam}"/>
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactperson" SelectedValuePath="LeverancierID" SelectionChanged="cbLeverancier_SelectionChanged" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name ="lblContactperson"  Content="CONTACTPERSON" Width="110"/>
@@ -35,7 +23,6 @@
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblEmail" Content="E-MAIL" Width="110" />
                 <TextBox Name ="tbEmail" Width="200"/>
-                
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblStraatnaam" Content="STRAATNAAM" Width="110" />
@@ -50,13 +37,15 @@
                 <TextBox Name ="tbBus" Width="200"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label  Name ="lblPostcode" Content="POSTCODE" Width="110" />
-                <TextBox Name ="tbPostcode" Width="200"/>
+                <Label  Name ="lblpostcode" Content="POSTCODE" Width="110" />
+                <TextBox Name ="tbpostcode" Width="200"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblGemeente" Content="GEMEENTE" Width="110" />
                 <TextBox Name ="tbGemeente" Width="200"/>
             </StackPanel>
+            <Button Name="btnBewerken" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBewerken_Click"/>
+
         </StackPanel>
     </Grid>
 </Window>

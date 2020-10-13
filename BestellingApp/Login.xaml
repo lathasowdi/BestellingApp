@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        Title="LOGIN" Height="450" Width="800"
+        Background="Aquamarine"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+
+    <StackPanel VerticalAlignment="center" HorizontalAlignment="center">
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label Name ="lblUser"  Width="100"/>
+            <Label Name ="lblTitel"  Content="WELKOM" Width="400" FontWeight="ExtraBlack" HorizontalAlignment="Center"/>
+            <!--Image Source="images\image1.jpg" Margin="0,0,0,10"/-->
+        </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Name ="lblUsernaam"  Content="USERNAAM" Width="100"/>
             <TextBox Name ="tbUsernaam" Width="400" TextChanged="tbUsernaam_TextChanged" />

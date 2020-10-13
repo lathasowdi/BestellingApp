@@ -7,6 +7,6 @@ Ik ben nu bezig met usernaam en wachtwoord verifieren.
 oktober 13 2020
 created separate forms for klantAdd, klantEdit and klantDelete.
 it is working.
-created separate forms for Leverancier.
+created separate forms for LeverancierAdd, Edit,Delete.
 partially completed login parts.
 begin met main menu.

@@ -64,10 +64,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CategorieBeheer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="KlantAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,7 +76,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeverancierBeheer.xaml">
+    <Page Include="LeverancierAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeverancierDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeverancierEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,9 +120,6 @@
     <Compile Include="Categorie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategorieBeheer.xaml.cs">
-      <DependentUpon>CategorieBeheer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Functie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
@@ -137,8 +138,14 @@
     <Compile Include="Leverancier.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LeverancierBeheer.xaml.cs">
-      <DependentUpon>LeverancierBeheer.xaml</DependentUpon>
+    <Compile Include="LeverancierAdd.xaml.cs">
+      <DependentUpon>LeverancierAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeverancierDelete.xaml.cs">
+      <DependentUpon>LeverancierDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeverancierEdit.xaml.cs">
+      <DependentUpon>LeverancierEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -206,6 +213,9 @@
       <DependentUpon>BestellingDataModel.edmx</DependentUpon>
       <LastGenOutput>BestellingDataModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
