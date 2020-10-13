@@ -13,10 +13,10 @@ namespace BestellingApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BestellingenAppEntities : DbContext
+    public partial class BestellingenEntities : DbContext
     {
-        public BestellingenAppEntities()
-            : base("name=BestellingenAppEntities")
+        public BestellingenEntities()
+            : base("name=BestellingenEntities")
         {
         }
     

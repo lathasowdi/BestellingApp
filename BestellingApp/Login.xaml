@@ -9,14 +9,14 @@
     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label Name ="lblUsernaam"  Content="USERNAAM" Width="100"/>
-            <TextBox Name ="tbUsernaam" Width="400"/>
+            <TextBox Name ="tbUsernaam" Width="400" TextChanged="tbUsernaam_TextChanged" />
         </StackPanel>
        
         <StackPanel Orientation="Horizontal" Margin="5">
             <Label  Name ="lblName" Content="WACHTWOORD" Width="100" />
-            <TextBox Name ="tbPass" Width="400"/>
+            <TextBox Name ="tbPass" Width="400" TextChanged="tbPass_TextChanged" />
         </StackPanel>
-        <Button Name="btnBereken" Content ="LOGIN" BorderBrush="Aquamarine" BorderThickness="2" Margin="5" Width="500" RenderTransformOrigin="-0.153,0.658" Click="btnBereken_Click"/>
+        <Button Name="btnLogin" Content ="LOGIN" BorderBrush="Aquamarine" BorderThickness="2" Margin="5" Width="500" RenderTransformOrigin="-0.153,0.658" Click="btnLogin_Click"/>
        
     </StackPanel>
 </Window>

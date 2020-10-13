@@ -64,6 +64,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CategorieBeheer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KlantAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KlantDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KlantEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeverancierBeheer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,49 +93,71 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bestelling.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BestellingDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BestellingDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="BestellingProduct.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Categorie.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategoryProduct.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CategoryProduct.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CategoryProduct.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CategoryProduct.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CategoryProduct.edmx</DependentUpon>
+    <Compile Include="CategorieBeheer.xaml.cs">
+      <DependentUpon>CategorieBeheer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Functie.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Klant.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KlantAdd.xaml.cs">
+      <DependentUpon>KlantAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KlantDelete.xaml.cs">
+      <DependentUpon>KlantDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KlantEdit.xaml.cs">
+      <DependentUpon>KlantEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Leverancier.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeverancierBeheer.xaml.cs">
+      <DependentUpon>LeverancierBeheer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Personeelslid.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>CategoryProduct.tt</DependentUpon>
+      <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -134,12 +176,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CategoryProduct.edmx">
+    <EntityDeploy Include="BestellingDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CategoryProduct.Designer.cs</LastGenOutput>
+      <LastGenOutput>BestellingDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CategoryProduct.edmx.diagram">
-      <DependentUpon>CategoryProduct.edmx</DependentUpon>
+    <None Include="BestellingDataModel.edmx.diagram">
+      <DependentUpon>BestellingDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -151,19 +193,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CategoryProduct.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CategoryProduct.Context.cs</LastGenOutput>
-      <DependentUpon>CategoryProduct.edmx</DependentUpon>
-    </Content>
-    <Content Include="CategoryProduct.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CategoryProduct.edmx</DependentUpon>
-      <LastGenOutput>CategoryProduct.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="BestellingDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BestellingDataModel.edmx</DependentUpon>
+      <LastGenOutput>BestellingDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BestellingDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BestellingDataModel.edmx</DependentUpon>
+      <LastGenOutput>BestellingDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

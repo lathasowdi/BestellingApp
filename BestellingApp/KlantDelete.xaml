@@ -1,0 +1,21 @@
+﻿<Window x:Class="BestellingApp.KlantDelete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BestellingApp"
+        mc:Ignorable="d"
+        Title="KlantDelete" Height="197" Width="749">
+    <Grid Margin="0,0,508,0">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <ComboBox x:Name="cbklant" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="klantID"></ComboBox>
+            </StackPanel>
+        
+        <StackPanel>
+        <Button Name="btnVerwijderen" Content ="VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnVerwijderen_Click"/>
+
+        </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -24,7 +24,7 @@ namespace BestellingApp
         public string Gemeente { get; set; }
         public string Telefoonnummer { get; set; }
         public string Emailadres { get; set; }
-        public Nullable<System.DateTime> AangemaaktOp { get; set; }
+        public string AangemaaktOp { get; set; }
         public string Opmerking { get; set; }
     }
 }

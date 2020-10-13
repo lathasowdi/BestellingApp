@@ -52,7 +52,7 @@
           <Property Name="Gemeente" Type="nvarchar" MaxLength="50" />
           <Property Name="Telefoonnummer" Type="nvarchar" MaxLength="50" />
           <Property Name="Emailadres" Type="nvarchar" MaxLength="50" />
-          <Property Name="AangemaaktOp" Type="datetime" />
+          <Property Name="AangemaaktOp" Type="nvarchar" MaxLength="50" />
           <Property Name="Opmerking" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Leverancier">
@@ -155,7 +155,7 @@
           <Property Name="Gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Telefoonnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AangemaaktOp" Type="DateTime" Precision="3" />
+          <Property Name="AangemaaktOp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Opmerking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Leverancier">
@@ -196,7 +196,7 @@
           <Property Name="LeverancierID" Type="Int32" />
           <Property Name="CategorieID" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="BestellingenAppEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BestellingenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bestelling" EntityType="Self.Bestelling" />
           <EntitySet Name="BestellingProduct" EntityType="Self.BestellingProduct" />
           <EntitySet Name="Categorie" EntityType="Self.Categorie" />
@@ -211,7 +211,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BestellingenAppModelStoreContainer" CdmEntityContainer="BestellingenAppEntities">
+        <EntityContainerMapping StorageEntityContainer="BestellingenAppModelStoreContainer" CdmEntityContainer="BestellingenEntities">
           <EntitySetMapping Name="Bestelling">
             <EntityTypeMapping TypeName="BestellingenAppModel.Bestelling">
               <MappingFragment StoreEntitySet="Bestelling">

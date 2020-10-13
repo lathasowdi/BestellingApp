@@ -24,5 +24,44 @@ namespace BestellingApp
         {
             InitializeComponent();
         }
+
+        private void tbUsernaam_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(tbUsernaam.Text=="")
+            {
+                MessageBox.Show("Geef Usernaam a.u.b");
+            }
+        }
+
+        private void tbPass_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(tbPass.Text=="")
+            {
+                MessageBox.Show("Geef Wachtwoord a.u.b");
+            }
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+           
+                string wachtwoord = tbPass.Text;
+                string usernaam = tbUsernaam.Text;
+                using (BestellingenEntities ctx = new BestellingenEntities())
+                {
+                    var check = ctx.Personeelslid.Where(p => p.Usernaam == usernaam && p.Wachtwoord == wachtwoord).Count();
+                    if (check == 1)
+                    {
+                        Personeelslid loggedin = ctx.Personeelslid.Where(p => p.Usernaam == usernaam).FirstOrDefault();
+                       MainMenu mainMenu = new MainMenu(loggedin);
+                        mainMenu.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gebruikersnaam of wachtwoord verkeerd!");
+                    }
+                }
+            
+        }
     }
 }
