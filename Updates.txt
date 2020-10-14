@@ -10,3 +10,9 @@ it is working.
 created separate forms for LeverancierAdd, Edit,Delete.
 partially completed login parts.
 begin met main menu.
+
+oktober 14 2020
+->DataBeheer tab Categorie add,Delete,Edit Personeel add, Edit, Delete
+Login form design
+started with overzicht tab
+testing login,klant,Leverancier,Categorie.

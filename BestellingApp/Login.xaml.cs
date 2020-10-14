@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace BestellingApp
 {
@@ -25,42 +27,64 @@ namespace BestellingApp
             InitializeComponent();
         }
 
-        private void tbUsernaam_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if(tbUsernaam.Text=="")
-            {
-                MessageBox.Show("Geef Usernaam a.u.b");
-            }
-        }
-
-        private void tbPass_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if(tbPass.Text=="")
-            {
-                MessageBox.Show("Geef Wachtwoord a.u.b");
-            }
-        }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-           
-                string wachtwoord = tbPass.Text;
-                string usernaam = tbUsernaam.Text;
+            string usernaam = "";
+            if (tbUsernaam.Text.Trim()== "")
+            {
+                MessageBox.Show("Geef Usernaam a.u.b",
+                "ALERT",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Warning);
+
+            }
+            else
+            {
+                usernaam = tbUsernaam.Text.Trim();
+            }
+            string wachtwoord = "";
+            if (tbWachtwoord.Text.Trim() == "")
+            {
+                MessageBox.Show("Geef Wachtwoord a.u.b",
+                "ALERT",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Warning);
+
+            }
+            else
+            {
+                wachtwoord = tbWachtwoord.Text.Trim();
+             
+            }
+            if (usernaam != null && wachtwoord != null)
+            {
                 using (BestellingenEntities ctx = new BestellingenEntities())
                 {
-                    var check = ctx.Personeelslid.Where(p => p.Usernaam == usernaam && p.Wachtwoord == wachtwoord).Count();
-                    if (check == 1)
+                    Personeelslid loggedin = ctx.Personeelslid.Where(p => p.Usernaam == usernaam).FirstOrDefault();
+                    if (loggedin != null)
                     {
-                        Personeelslid loggedin = ctx.Personeelslid.Where(p => p.Usernaam == usernaam).FirstOrDefault();
-                       MainMenu mainMenu = new MainMenu(loggedin);
-                        mainMenu.Show();
-                        this.Close();
+                        if (loggedin.Wachtwoord == wachtwoord)
+                        {
+                            MainMenu mainMenu = new MainMenu(loggedin);
+                            mainMenu.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(" Wachtwoord is verkeerd!", "ALERT",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Gebruikersnaam of wachtwoord verkeerd!");
+                        MessageBox.Show(" Usernaam is verkeerd!", "ALERT",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Warning);
                     }
                 }
+            }
             
         }
     }

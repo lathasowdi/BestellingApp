@@ -9,11 +9,45 @@
     <Grid>
         <StackPanel>
             <TabControl>
-            <TabItem Header="DATABEHEER">
-                <StackPanel>
-                        <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
-                        <!---Button Name="btnBewerken" Content ="BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBewerken_Click"/-->
-                        <!---Button Name="btnVerwijderen" Content ="VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnVerwijderen_Click"/-->
+            <TabItem Header="DATABEHEER" x:Name="tabDatabeheer" IsEnabled="True">
+                    <StackPanel>
+                        <TabControl>
+                        <TabItem Header="KLANT">
+                                <StackPanel>
+                                    <Button Name="btnKlantToevoegen" Content =" KLANT TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantToevoegen_Click"/>
+                                    <Button Name="btnklantBewerken" Content ="KLANT BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnklantBewerken_Click"/>
+                                    <Button Name="btnklantVerwijderen" Content ="KLANT VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantVerwijderen_Click"/>
+                                    </StackPanel>
+                            </TabItem>
+                            <TabItem Header="LEVERANCIER">
+                                <StackPanel>
+                                    <Button Name="btnLeverancierToevoegen" Content ="LEVERANCIER TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierToevoegen_Click"/>
+                                    <Button Name="btnLeverancierBewerken" Content ="LEVERANCIER BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBewerken_Click"/>
+                                    <Button Name="btnLeverancierVerwijderen" Content ="LEVERANCIER VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierVerwijderen_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="PRODUCT">
+                                <StackPanel>
+                                    <Button Name="btnProductToevoegen" Content ="PRODUCT TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnProductToevoegen_Click"/>
+                                    <Button Name="btnProductBewerken" Content ="PRODUCT BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnProductBewerken_Click"/>
+                                    <Button Name="btnProductVerwijderen" Content ="PRODUCT VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnProductVerwijderen_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="CATEGORIE">
+                                <StackPanel>
+                                    <Button Name="btnCategorieToevoegen" Content ="CATEGORIE TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnCategorieToevoegen_Click"/>
+                                    <Button Name="btnCategorieBewerken" Content ="CATEGORIE BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnCategorieBewerken_Click"/>
+                                    <Button Name="btnCategorieVerwijderen" Content ="CATEGORIE VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnCategorieVerwijderen_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="PERSONEEL">
+                                <StackPanel>
+                                    <Button Name="btnPersoneelToevoegen" Content ="PERSONEEL TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnPersoneelToevoegen_Click"/>
+                                    <Button Name="btnPersoneelBewerken" Content ="PERSONEEL BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnPersoneelBewerken_Click"/>
+                                    <Button Name="btnPersoneelVerwijderen" Content ="PERSONEEL VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnPersoneelVerwijderen_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                       </TabControl>
                     </StackPanel>
             </TabItem>
             <TabItem Header="OVERZICHT">

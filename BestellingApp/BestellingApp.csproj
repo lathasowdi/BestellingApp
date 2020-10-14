@@ -64,6 +64,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CategorieAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CategorieDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CategorieEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KlantAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +132,15 @@
     <Compile Include="Categorie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategorieAdd.xaml.cs">
+      <DependentUpon>CategorieAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CategorieDelete.xaml.cs">
+      <DependentUpon>CategorieDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CategorieEdit.xaml.cs">
+      <DependentUpon>CategorieEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Functie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
@@ -155,16 +176,58 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PersoneelAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersoneelDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersoneelEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersoneelAdd.xaml.cs">
+      <DependentUpon>PersoneelAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersoneelDelete.xaml.cs">
+      <DependentUpon>PersoneelDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersoneelEdit.xaml.cs">
+      <DependentUpon>PersoneelEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Personeelslid.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAdd.xaml.cs">
+      <DependentUpon>ProductAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDelete.xaml.cs">
+      <DependentUpon>ProductDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductEdit.xaml.cs">
+      <DependentUpon>ProductEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
