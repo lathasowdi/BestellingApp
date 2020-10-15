@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="ProductDelete" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+         Title="ProductDelete" Height="250" Width="350" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblProduct" Content="PRODUCT DELETE" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="150"/>
+            <Separator></Separator>
+            <Label Name ="lblProduct1"  Content="PRODUCT LIJST" Foreground="PaleVioletRed"/>
+            <ComboBox x:Name="cbProduct" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Naam" SelectedValuePath="ProductID"></ComboBox>
+            <Button Name="btnVerwijderen" Content ="VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="180" RenderTransformOrigin="-0.153,0.658" Click="btnVerwijderen_Click"/>
+        </StackPanel>
+    </Border>
 </Window>

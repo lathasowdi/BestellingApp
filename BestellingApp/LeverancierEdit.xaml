@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LeverancierEdit" Height="450" Width="800">
-    <Grid>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        Title="LeverancierEdit" Height="500" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblLeverancier" Content="LEVERANCIER EDIT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="150"/>
+            <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactperson" SelectedValuePath="LeverancierID" SelectionChanged="cbLeverancier_SelectionChanged" ></ComboBox>
             </StackPanel>
@@ -44,8 +47,9 @@
                 <Label  Name ="lblGemeente" Content="GEMEENTE" Width="110" />
                 <TextBox Name ="tbGemeente" Width="200"/>
             </StackPanel>
+            <StackPanel>
             <Button Name="btnBewerken" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBewerken_Click"/>
-
+            </StackPanel>
         </StackPanel>
-    </Grid>
+    </Border>
 </Window>

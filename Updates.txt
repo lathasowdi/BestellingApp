@@ -16,3 +16,9 @@ oktober 14 2020
 Login form design
 started with overzicht tab
 testing login,klant,Leverancier,Categorie.
+
+Oktober 15 2020
+Product toevoegen,Bewerken,Verwijderen design and coding.
+Personeelslid toevoegen,Bewerken,Verwijderen design and coding.
+Testing and Error Handling.
+Bestelling Tab loading.

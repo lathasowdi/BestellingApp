@@ -22,6 +22,24 @@ namespace BestellingApp
         public PersoneelDelete()
         {
             InitializeComponent();
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                var Personeelquery = ctx.Personeelslid.Select(k => k);
+
+                cbPersoneelslid.ItemsSource = Personeelquery.ToList();
+
+            }
+        }
+
+        private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                var selectedPersoneel = (Personeelslid)cbPersoneelslid.SelectedItem;
+                ctx.Personeelslid.RemoveRange(ctx.Personeelslid.Where(k => k.PersoneelslidID == selectedPersoneel.PersoneelslidID));
+                ctx.SaveChanges();
+            }
+            MessageBox.Show("Personeelslid is verwijderen");
         }
     }
 }

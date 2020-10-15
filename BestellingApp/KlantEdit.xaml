@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="KlantEdit" Height="542" Width="900">
-    <Grid>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        Title="KlantEdit" Height="625" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblklant" Content="KLANT ADD" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="130"/>
+            <Separator></Separator>
+            <Label Name ="lblklant1"  Content="KLANT LIJST" Foreground="PaleVioletRed"/>
+            <ComboBox x:Name="cbklant" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="KlantID"></ComboBox>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <ComboBox x:Name="cbklant" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="klantID" SelectionChanged="cbklant_SelectionChanged" ></ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Name ="lblVoornaam"  Content="VOORNAAM" Width="100"/>
+                <Label  Name ="lblVoornaam" Content="VOORNAAM" Width="100" />
                 <TextBox Name ="tbVoornaam" Width="200"/>
             </StackPanel>
-
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblAchternaam" Content="ACHTERNAAM" Width="100" />
                 <TextBox Name ="tbAchternaam" Width="200"/>
@@ -56,8 +57,10 @@
                 <Label  Name ="lblOpmerking" Content="OPMERKING" Width="100" />
                 <TextBox Name ="tbOpmerking" Width="200"/>
             </StackPanel>
-            <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
-
+            <StackPanel>
+                <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
+            </StackPanel>
         </StackPanel>
-    </Grid>
+
+    </Border>
 </Window>

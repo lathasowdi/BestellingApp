@@ -11,11 +11,11 @@
         <StackPanel  Margin="20">
             <Label Name ="lblLogin" Content="LOGIN" HorizontalAlignment="Center" FontSize="25" Foreground="PaleVioletRed" Width="100"/>
             <Separator></Separator>
-            <Label Name ="lblUsernaam"  Content="USERNAAM" Foreground="PaleVioletRed"/>
-            <TextBox Name ="tbUsernaam" Background="Beige" Foreground="Black" FontSize="18"  />
+            <Label Name ="lblUsernaam"  Content="USERNAAM" Foreground="PaleVioletRed" />
+            <TextBox Name ="tbUsernaam" Background="Beige" Foreground="Black" FontSize="18" />
 
             <Label Name ="lblPass"  Content="WACHTWOORD" Foreground="PaleVioletRed"/>
-            <TextBox Name ="tbWachtwoord" Background="Beige" Foreground="Black" FontSize="18"  />
+            <TextBox Name ="tbWachtwoord" Background="Beige" Foreground="Black" FontSize="18" PreviewKeyDown="tbWachtwoord_PreviewKeyDown" />
             <Button Name="btnLogin" Content ="LOGIN"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnLogin_Click"/>
         
         </StackPanel>

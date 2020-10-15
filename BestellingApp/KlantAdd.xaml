@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="KlantAdd" Height="650" Width="739">
-    <Grid>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        Title="KlantAdd" Height="625" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblLogin" Content="KLANT ADD" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="130"/>
+            <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Name ="lblVoornaam"  Content="VOORNAAM" Width="100"/>
+                <Label  Name ="lblVoornaam" Content="VOORNAAM" Width="100" />
                 <TextBox Name ="tbVoornaam" Width="200"/>
             </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
+    <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblAchternaam" Content="ACHTERNAAM" Width="100" />
                 <TextBox Name ="tbAchternaam" Width="200"/>
             </StackPanel>
@@ -53,8 +55,10 @@
                 <Label  Name ="lblOpmerking" Content="OPMERKING" Width="100" />
                 <TextBox Name ="tbOpmerking" Width="200"/>
             </StackPanel>
+        <StackPanel>
             <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
-            
         </StackPanel>
-    </Grid>
+        </StackPanel>
+
+    </Border>
 </Window>

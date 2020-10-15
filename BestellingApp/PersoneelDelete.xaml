@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="PersoneelDelete" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Personeelslid Delete" Height="300" Width="300" FontStyle="Italic" FontSize="10" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblPersoneeldelete" Content="PERSONEELSLIDDELETE" HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="200"/>
+            <Separator></Separator>
+            <Label Name ="lblPersoneel"  Content="PERSONEELSLID LIJST" Foreground="PaleVioletRed"/>
+            <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="PersoneelslidID"></ComboBox>
+            <Button Name="btnVerwijderen" Content ="VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="180" RenderTransformOrigin="-0.153,0.658" Click="btnVerwijderen_Click"/>
+        </StackPanel>
+    </Border>
 </Window>

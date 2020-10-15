@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LeverancierAdd" Height="450" Width="800">
-    <Grid>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        Title="LeverancierAdd" Height="500" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblLeverancier" Content="LEVERANCIER ADD" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="150"/>
+            <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name ="lblContactperson"  Content="CONTACTPERSON" Width="110"/>
                 <TextBox Name ="tbContactperson" Width="200"/>
@@ -41,8 +44,11 @@
                 <Label  Name ="lblGemeente" Content="GEMEENTE" Width="110" />
                 <TextBox Name ="tbGemeente" Width="200"/>
             </StackPanel>
-            <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
+        <StackPanel>
+        <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
 
         </StackPanel>
-    </Grid>
+        </StackPanel>
+
+    </Border>
 </Window>

@@ -25,6 +25,7 @@ namespace BestellingApp
         public MainWindow()
         {
             InitializeComponent();
+            tbUsernaam.Focus();
         }
 
 
@@ -86,6 +87,14 @@ namespace BestellingApp
                 }
             }
             
+        }
+
+        private void tbWachtwoord_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

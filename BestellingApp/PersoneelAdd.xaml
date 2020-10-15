@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="PersoneelAdd" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+         Title="PersoneelAdd" Height="500" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblPersoneel" Content="PERSONEELSLIDADD" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="180"/>
+            <Separator></Separator>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name ="lblVoornaam"  Content="VOORNAAM" Width="110"/>
+                <TextBox Name ="tbVoornaam" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblAchternaam" Content="ACHTERNAAM" Width="110" />
+                <TextBox Name ="tbAchternaam" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblId" Content="FUNCTIE" Width="110" />
+                <ComboBox x:Name="cbFunctie" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="FunctieTitel" SelectedValuePath="FunctieID"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblUsernaam" Content="USERNAAM" Width="110" />
+                <TextBox Name ="tbUsernaam" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblWachtwoord" Content="WACHTWOORD" Width="110" />
+                <TextBox Name ="tbWachtwoord" Width="200"/>
+            </StackPanel>
+            
+            <StackPanel>
+                <Button Name="btnToevoegen" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnToevoegen_Click"/>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Border>
 </Window>
