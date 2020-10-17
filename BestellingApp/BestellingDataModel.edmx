@@ -157,6 +157,7 @@
           <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AangemaaktOp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Opmerking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NavigationProperty1" />
         </EntityType>
         <EntityType Name="Leverancier">
           <Key>

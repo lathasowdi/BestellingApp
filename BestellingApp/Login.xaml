@@ -15,9 +15,9 @@
             <TextBox Name ="tbUsernaam" Background="Beige" Foreground="Black" FontSize="18" />
 
             <Label Name ="lblPass"  Content="WACHTWOORD" Foreground="PaleVioletRed"/>
-            <TextBox Name ="tbWachtwoord" Background="Beige" Foreground="Black" FontSize="18" PreviewKeyDown="tbWachtwoord_PreviewKeyDown" />
-            <Button Name="btnLogin" Content ="LOGIN"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnLogin_Click"/>
-        
+            <PasswordBox x:Name="tbWachtwoord" Cursor="Arrow"></PasswordBox>  
+            <Button x:Name="btnLogin" Content ="LOGIN"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnLogin_Click"/>
+
         </StackPanel>
     </Border>
 </Window>

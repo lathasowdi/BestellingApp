@@ -22,6 +22,10 @@ namespace BestellingApp
         public ProductDelete()
         {
             InitializeComponent();
+            updatecombobox();
+        }
+        private void updatecombobox()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var Productquery = ctx.Product.Select(k => k);
@@ -30,8 +34,9 @@ namespace BestellingApp
 
             }
         }
+         
 
-        private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
+private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
@@ -39,6 +44,7 @@ namespace BestellingApp
                 ctx.Product.RemoveRange(ctx.Product.Where(k => k.ProductID == selectedProduct.ProductID));
                 ctx.SaveChanges();
             }
+            updatecombobox();
             MessageBox.Show("Product is verwijderen");
         }
     }

@@ -22,6 +22,12 @@ namespace BestellingApp
         public LeverancierDelete()
         {
             InitializeComponent();
+            updatecbLeverancier();
+
+
+        }
+        private void updatecbLeverancier()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var Leverancierquery = ctx.Leverancier.Select(k => k);
@@ -39,7 +45,10 @@ namespace BestellingApp
                 ctx.Leverancier.RemoveRange(ctx.Leverancier.Where(k => k.LeverancierID == selectedLeverancier.LeverancierID));
                 ctx.SaveChanges();
             }
-            MessageBox.Show("Leverancier is verwijderen");
+            updatecbLeverancier();
+            MessageBox.Show("Leverancier is verwijderen", "INFO",
+                     MessageBoxButton.OKCancel,
+                     MessageBoxImage.Information);
         }
     }
 }

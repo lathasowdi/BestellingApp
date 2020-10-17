@@ -12,7 +12,7 @@
             <Label Name ="lblPersoneel" Content="PERSONEELSLIDEDIT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="180"/>
             <Separator></Separator>
             <Label Name ="lblPersoneel1"  Content="PERSONEELSLIDLIJST" Foreground="PaleVioletRed"/>
-            <ComboBox x:Name="cbPersoneel" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="KlantID" SelectionChanged="cbPersoneel_SelectionChanged" ></ComboBox>
+            <ComboBox x:Name="cbPersoneel" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="PersoneelslidID" SelectionChanged="cbPersoneel_SelectionChanged" ></ComboBox>
            
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name ="lblVoornaam"  Content="VOORNAAM" Width="110"/>
@@ -25,7 +25,8 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblId" Content="FUNCTIE" Width="110" />
-                <ComboBox x:Name="cbFunctie" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="FunctieTitel" SelectedValuePath="FunctieID"></ComboBox>
+                <!--ComboBox x:Name="cbFunctie" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Voornaam" SelectedValuePath="FunctieID"/-->
+                <TextBox Name ="tbFunctie" Width="200"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblUsernaam" Content="USERNAAM" Width="110" />

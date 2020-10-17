@@ -20,21 +20,24 @@ namespace BestellingApp
     public partial class MainMenu : Window
     {
         public Personeelslid loggedinpersoneelid=new Personeelslid();
+       
         public MainMenu(Personeelslid loggedin)
         {
-            loggedinpersoneelid = loggedin;
-            //if (loggedinpersoneelid.FunctieID == 1)
-            //{
-            //    tabDatabeheer.IsEnabled = true;
-            //    tabDatabeheer.Visibility = Visibility.Visible;
-            //}
-            //else 
-            //{
-            //    tabDatabeheer.IsEnabled = false;
-            //    tabDatabeheer.Visibility = Visibility.Hidden;
-                
-            //}
             InitializeComponent();
+            loggedinpersoneelid = loggedin;
+            if (loggedinpersoneelid.FunctieID== 1)
+            {
+
+                tabDatabeheer.IsSelected=true;
+                tabDatabeheer.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                tabDatabeheer.IsSelected = false;
+                tabDatabeheer.Visibility = Visibility.Hidden;
+
+            }
+            
         }
 
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
@@ -136,5 +139,22 @@ namespace BestellingApp
             PersoneelDelete personeelDelete = new PersoneelDelete();
             personeelDelete.Show();
         }
+
+        private void btnBestellingToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+            BestellingAdd bestellingAdd = new BestellingAdd();
+            bestellingAdd.Show();
+        }
+
+       
+
+        
+
+        private void btnBestellingProductToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

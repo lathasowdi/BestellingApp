@@ -142,7 +142,9 @@ namespace BestellingApp
                 nieuweklant.Opmerking = opmerking;
                 ctx.Klant.Add(nieuweklant);
                 ctx.SaveChanges();
-                MessageBox.Show("klant Toevoegd");
+                MessageBox.Show("klant Toevoegd","INFO",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Exclamation);
             }
         }
     }

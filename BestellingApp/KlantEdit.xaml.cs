@@ -22,16 +22,20 @@ namespace BestellingApp
         public KlantEdit()
         {
             InitializeComponent();
+            updatecombobox();
+        }
+        private void updatecombobox()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var klantquery = ctx.Klant.Select(k => k);
 
                 cbklant.ItemsSource = klantquery.ToList();
-
+                cbklant.SelectedIndex = 0;
             }
         }
-      
-        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
+
+        private void btnBewerken_Click(object sender, RoutedEventArgs e)
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
@@ -148,11 +152,15 @@ namespace BestellingApp
                 ctx.Klant.Where(p => p.KlantID == selectedklant.KlantID).FirstOrDefault().AangemaaktOp = datum;
                 ctx.Klant.Where(p => p.KlantID == selectedklant.KlantID).FirstOrDefault().Opmerking = opmerking;
                 ctx.SaveChanges();
-                MessageBox.Show("klant Bewerken is gedaan!");
+                MessageBox.Show("klant Bewerk is gedaan", "INFO",
+                     MessageBoxButton.OKCancel,
+                     MessageBoxImage.Information);
+                updatecombobox();
             }
         }
 
-        private void cbklant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        private void cbklant_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {

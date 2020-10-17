@@ -12,7 +12,7 @@
             <Label Name ="lblLeverancierdelete" Content="LEVERANCIERDELETE" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="200"/>
             <Separator></Separator>
             <Label Name ="lblklant"  Content="LEVERANCIER LIJST" Foreground="PaleVioletRed"/>
-            <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactperson" SelectedValuePath="LeverancierID"></ComboBox>
+            <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactpersoon" SelectedValuePath="LeverancierID"></ComboBox>
             <Button Name="btnVerwijderen" Content ="VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="180" RenderTransformOrigin="-0.153,0.658" Click="btnVerwijderen_Click"/>
         </StackPanel>
     </Border>

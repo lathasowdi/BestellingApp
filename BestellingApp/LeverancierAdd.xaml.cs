@@ -113,7 +113,9 @@ namespace BestellingApp
                 nieuweLeverancier.Gemeente = Gemeente;
                 ctx.Leverancier.Add(nieuweLeverancier);
                 ctx.SaveChanges();
-                MessageBox.Show("Leverancier Toevoegd");
+                MessageBox.Show("Leverancier is Toegevoegd", "INFO",
+                      MessageBoxButton.OKCancel,
+                      MessageBoxImage.Exclamation);
             }
         }
     }

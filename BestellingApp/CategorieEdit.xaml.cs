@@ -22,6 +22,12 @@ namespace BestellingApp
         public CategorieEdit()
         {
             InitializeComponent();
+            cbboxupdate();
+
+
+        }
+        private void cbboxupdate()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var Categoriequery = ctx.Categorie.Select(k => k);
@@ -48,7 +54,10 @@ namespace BestellingApp
                 var selectedcategorienaam = (Categorie)cbCategorie.SelectedItem;
                 ctx.Categorie.Where(p => p.CategorieID == selectedcategorienaam.CategorieID).FirstOrDefault().CategorieNaam= categorienaam;
                 ctx.SaveChanges();
-                MessageBox.Show("CategorieNaam is Verandered");
+                cbboxupdate();
+                MessageBox.Show("CategorieNaam is Verandered" ,"INFO",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Information);
             }
         }
     }

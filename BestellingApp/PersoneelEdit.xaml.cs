@@ -27,6 +27,12 @@ namespace BestellingApp
                 var Personeelquery = ctx.Personeelslid.Select(k => k);
 
                cbPersoneel.ItemsSource = Personeelquery.ToList();
+                cbPersoneel.SelectedIndex = 0;
+                //var Functiequery = ctx.Functie.Join(ctx.Personeelslid,
+                //    f => f.FunctieID,
+                //    p => p.FunctieID,
+                //    (f, p) => new { f, p });
+                //cbFunctie.ItemsSource = Functiequery.ToList();
 
             }
         }
@@ -53,7 +59,7 @@ namespace BestellingApp
                 {
                     MessageBox.Show("Geef Achternaam a.u.b");
                 }
-                int functieID = (int)cbFunctie.SelectedValue;
+                //int functieID = (int)cbFunctie.SelectedValue;
 
                 string usernaam = "";
                 if (tbUsernaam.Text.Trim() != "")
@@ -77,7 +83,7 @@ namespace BestellingApp
                 var selectedPersoneel = (Personeelslid)cbPersoneel.SelectedItem;
                 ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().Voornaam = voornaam;
                 ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().Achternaam = achternaam;
-                ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().FunctieID = functieID;
+                //ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().FunctieID = functieID;
                 ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().Usernaam = usernaam;
                 ctx.Personeelslid.Where(p => p.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().Wachtwoord = wachtwoord;
                 ctx.SaveChanges();
@@ -94,7 +100,13 @@ namespace BestellingApp
                 tbAchternaam.Text = selectedPersoneel.Achternaam;
                 tbUsernaam.Text = selectedPersoneel.Usernaam;
                 tbWachtwoord.Text = selectedPersoneel.Achternaam;
-                cbFunctie.SelectedValue = selectedPersoneel.FunctieID;
+                var joinQuery1 = ctx.Personeelslid
+                             .Join(ctx.Functie,
+                             b => b.FunctieID,
+                            p => p.FunctieID,
+                            (b, p) => new { b, p });
+                tbFunctie.Text = joinQuery1.Where(x => x.b.PersoneelslidID == selectedPersoneel.PersoneelslidID).FirstOrDefault().p.FunctieTitel;
+               
             }
         }
     }

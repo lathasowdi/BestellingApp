@@ -64,6 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BestellingAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BestellingBekijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BestellingEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BestellingProductAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CategorieAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +127,12 @@
     <Compile Include="Bestelling.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BestellingAdd.xaml.cs">
+      <DependentUpon>BestellingAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingBekijk.xaml.cs">
+      <DependentUpon>BestellingBekijk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BestellingDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,8 +148,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BestellingDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="BestellingEdit.xaml.cs">
+      <DependentUpon>BestellingEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BestellingProduct.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingProductAdd.xaml.cs">
+      <DependentUpon>BestellingProductAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Categorie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>

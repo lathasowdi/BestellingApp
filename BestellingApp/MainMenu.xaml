@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="800">
+       Title="MainMenu" Height="400" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
     <Grid>
         <StackPanel>
             <TabControl>
-            <TabItem Header="DATABEHEER" x:Name="tabDatabeheer" IsEnabled="True">
+            <TabItem Header="DATABEHEER" x:Name="tabDatabeheer"  Background="BlanchedAlmond">
                     <StackPanel>
                         <TabControl>
-                        <TabItem Header="KLANT">
+                            <TabItem Header="KLANT"  x:Name="tabKlant" >
                                 <StackPanel>
                                     <Button Name="btnKlantToevoegen" Content =" KLANT TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantToevoegen_Click"/>
                                     <Button Name="btnklantBewerken" Content ="KLANT BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnklantBewerken_Click"/>
@@ -53,6 +54,12 @@
             <TabItem Header="OVERZICHT">
                 </TabItem>
                 <TabItem Header="BESTELLING">
+                    <StackPanel>
+                        
+                        <Button Name="btnBestellingToevoegen" Content ="BESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBestellingToevoegen_Click"/>
+                       
+                        <Button Name="btnBestellingProductToevoegen" Content ="BESTELLING PRODUCT TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBestellingProductToevoegen_Click"/>
+                    </StackPanel>
                 </TabItem>
                 </TabControl>
         </StackPanel>

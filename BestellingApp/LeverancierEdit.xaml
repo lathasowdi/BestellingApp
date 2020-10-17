@@ -12,7 +12,7 @@
             <Label Name ="lblLeverancier" Content="LEVERANCIER EDIT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="150"/>
             <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactperson" SelectedValuePath="LeverancierID" SelectionChanged="cbLeverancier_SelectionChanged" ></ComboBox>
+                <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactpersoon" SelectedValuePath="LeverancierID" SelectionChanged="cbLeverancier_SelectionChanged" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name ="lblContactperson"  Content="CONTACTPERSON" Width="110"/>

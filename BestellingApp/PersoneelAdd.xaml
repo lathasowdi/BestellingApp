@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-         Title="PersoneelAdd" Height="500" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+         Title="PersoneelAdd" Height="400" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
@@ -22,7 +22,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblId" Content="FUNCTIE" Width="110" />
-                <ComboBox x:Name="cbFunctie" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="FunctieTitel" SelectedValuePath="FunctieID"></ComboBox>
+                <ComboBox x:Name="cbFunctie" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label  Name ="lblUsernaam" Content="USERNAAM" Width="110" />

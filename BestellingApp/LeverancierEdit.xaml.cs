@@ -22,6 +22,12 @@ namespace BestellingApp
         public LeverancierEdit()
         {
             InitializeComponent();
+            upcbLeverancier();
+
+
+        }
+        private void upcbLeverancier()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var Leverancierquery = ctx.Leverancier.Select(k => k);
@@ -119,7 +125,10 @@ namespace BestellingApp
                 ctx.Leverancier.Where(p => p.LeverancierID == selectedLeverancier.LeverancierID).FirstOrDefault().Gemeente = Gemeente;
                 ctx.Leverancier.Where(p => p.LeverancierID == selectedLeverancier.LeverancierID).FirstOrDefault().Telefoonnummer = telefoon;
                 ctx.SaveChanges();
-                MessageBox.Show("Leverancier Bewerken is gedaan!");
+                upcbLeverancier();
+                MessageBox.Show("Leverancier Bewerken is gedaan!", "INFO",
+                     MessageBoxButton.OKCancel,
+                     MessageBoxImage.Information);
 
             }
         }

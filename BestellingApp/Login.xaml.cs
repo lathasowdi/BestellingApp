@@ -28,7 +28,6 @@ namespace BestellingApp
             tbUsernaam.Focus();
         }
 
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string usernaam = "";
@@ -45,7 +44,7 @@ namespace BestellingApp
                 usernaam = tbUsernaam.Text.Trim();
             }
             string wachtwoord = "";
-            if (tbWachtwoord.Text.Trim() == "")
+            if (tbWachtwoord.Password.Trim() == "")
             {
                 MessageBox.Show("Geef Wachtwoord a.u.b",
                 "ALERT",
@@ -55,7 +54,7 @@ namespace BestellingApp
             }
             else
             {
-                wachtwoord = tbWachtwoord.Text.Trim();
+                wachtwoord = tbWachtwoord.Password.Trim();
              
             }
             if (usernaam != null && wachtwoord != null)
@@ -68,6 +67,7 @@ namespace BestellingApp
                         if (loggedin.Wachtwoord == wachtwoord)
                         {
                             MainMenu mainMenu = new MainMenu(loggedin);
+
                             mainMenu.Show();
                             this.Close();
                         }

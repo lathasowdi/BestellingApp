@@ -24,12 +24,15 @@ namespace BestellingApp
             InitializeComponent();
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
-                var Leverancierquery = ctx.Leverancier.Select(k => k);
-
-               LbLeverancier.ItemsSource = Leverancierquery.ToList();
-                var Categoriequery = ctx.Categorie.Select(k => k);
-
-                cbCategorie.ItemsSource = Categoriequery.ToList();
+                var Leverancierquery = ctx.Leverancier.Select(k => k).ToList();
+                cbLeverancier.DisplayMemberPath = "Contactpersoon";
+                cbLeverancier.SelectedValuePath = "LeverancierID";
+                cbLeverancier.ItemsSource = Leverancierquery;
+                cbLeverancier.SelectedIndex = 0;
+                var Categoriequery = ctx.Categorie.Select(k => k).ToList();
+                cbCategorie.DisplayMemberPath = "CategorieNaam";
+                cbCategorie.SelectedValuePath = "CategorieID";
+                cbCategorie.ItemsSource = Categoriequery;
                 cbCategorie.SelectedIndex = 0;
 
             }
@@ -51,13 +54,13 @@ namespace BestellingApp
                 double inkoopprijs = 0;
                 if (tbInkoopprijs.Text.Trim() != "")
                 {
-                   inkoopprijs =Convert.ToDouble( tbInkoopprijs.Text.Trim());
+                    inkoopprijs = Convert.ToDouble(tbInkoopprijs.Text.Trim());
                 }
                 else
                 {
                     MessageBox.Show("Geef Inkoopprijs a.u.b");
                 }
-                double Marge= 0;
+                double Marge = 0;
                 if (tbMarge.Text.Trim() != "")
                 {
                     Marge = Convert.ToDouble(tbMarge.Text.Trim());
@@ -69,7 +72,7 @@ namespace BestellingApp
                 string eenheeid = "";
                 if (tbEenheid.Text.Trim() != "")
                 {
-                   eenheeid = tbEenheid.Text.Trim();
+                    eenheeid = tbEenheid.Text.Trim();
                 }
                 else
                 {
@@ -78,27 +81,29 @@ namespace BestellingApp
                 double btw = 0;
                 if (tbBtw.Text.Trim() != "")
                 {
-                    btw= Convert.ToDouble(tbBtw.Text.Trim());
+                    btw = Convert.ToDouble(tbBtw.Text.Trim());
                 }
                 else
                 {
                     MessageBox.Show("Geef BTW a.u.b");
                 }
-                int leverancierID = (int)LbLeverancier.SelectedValue;
+                int leverancierID = (int)cbLeverancier.SelectedValue;
                 int categorieID = (int)cbCategorie.SelectedValue;
 
                 Product nieuweProduct = new Product();
                 nieuweProduct.Naam = naam;
                 nieuweProduct.InKoopprijs = inkoopprijs;
                 nieuweProduct.Marge = Marge;
-                nieuweProduct.Eenheid= eenheeid;
+                nieuweProduct.Eenheid = eenheeid;
                 nieuweProduct.BTW = btw;
                 nieuweProduct.LeverancierID = leverancierID;
                 nieuweProduct.CategorieID = categorieID;
                 ctx.Product.Add(nieuweProduct);
                 ctx.SaveChanges();
-                MessageBox.Show("Product Toevoegd");
             }
+            MessageBox.Show("Product Toevoegd");
+            MessageBox.Show("Product Toevoegd");
+
         }
     }
 }

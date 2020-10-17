@@ -27,6 +27,9 @@ namespace BestellingApp
                 var FunctieQuery = ctx.Functie.Select(x => x);
                
                 cbFunctie.ItemsSource = FunctieQuery.ToList();
+                cbFunctie.DisplayMemberPath = "FunctieTitel";
+                cbFunctie .SelectedValuePath = "FunctieID";
+                cbFunctie.SelectedIndex = 0;
             }
         }
 

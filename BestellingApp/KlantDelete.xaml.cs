@@ -22,6 +22,12 @@ namespace BestellingApp
         public KlantDelete()
         {
             InitializeComponent();
+            updatecombobox();
+
+
+        }
+        private void updatecombobox()
+        {
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var klantquery = ctx.Klant.Select(k => k);
@@ -39,7 +45,10 @@ namespace BestellingApp
                 ctx.Klant.RemoveRange(ctx.Klant.Where(k => k.KlantID == selectedklant.KlantID));
                 ctx.SaveChanges();
             }
-            MessageBox.Show("klant is verwijderen");
+            MessageBox.Show("klant is Verwijderen", "INFO",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Information);
+            updatecombobox();
         }
     }
 }

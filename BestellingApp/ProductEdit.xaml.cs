@@ -22,6 +22,26 @@ namespace BestellingApp
         public ProductEdit()
         {
             InitializeComponent();
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+               
+                var Productquery = ctx.Product.Select(k => k).ToList();
+                cbProduct.DisplayMemberPath = "Naam";
+                cbProduct.SelectedValuePath = "ProductID";
+                cbProduct.ItemsSource = Productquery;
+                cbProduct.SelectedIndex = 0;
+                cbLeverancier.ItemsSource = null;
+                var Leverancierquery = ctx.Leverancier.Select(k => k).ToList();
+                cbLeverancier.DisplayMemberPath = "Contactpersoon";
+                cbLeverancier.SelectedValuePath = "LeverancierID";
+                cbLeverancier.ItemsSource = Leverancierquery;
+                cbLeverancier.SelectedIndex = 0;
+                var Categoriequery = ctx.Categorie.Select(k => k).ToList();
+                cbCategorie.DisplayMemberPath = "CategorieNaam";
+                cbCategorie.SelectedValuePath = "CategorieID";
+                cbCategorie.ItemsSource = Categoriequery;
+                cbCategorie.SelectedIndex = 0;
+            }
         }
 
         private void btnBewerken_Click(object sender, RoutedEventArgs e)
@@ -73,26 +93,31 @@ namespace BestellingApp
                 {
                     MessageBox.Show("Geef BTW a.u.b");
                 }
-                int leverancierID = (int)LbLeverancier.SelectedValue;
+                int leverancierID = (int)cbLeverancier.SelectedValue;
                 int categorieID = (int)cbCategorie.SelectedValue;
+                ctx.SaveChanges();
+               
             }
+            
+            MessageBox.Show("Product Bewerk is gedaan");
         }
 
 
             private void cbProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-                //using (BestellingenEntities ctx = new BestellingenEntities())
-                //{
-                //    var selectedProduct = (Product)cbProduct.SelectedItem;
-                //   tbNaam.Text = selectedProduct.Naam;
-                //tbInkoopprijs.Text= selectedProduct.InKoopprijs;
-                //    tbMarge.Text = selectedProduct.Marge;
-                //    tbEenheid.Text = selectedProduct.Eenheid;
-                //    tbBtw.Text = selectedProduct.BTW;
-                //LbLeverancier.SelectedValue = selectedProduct.LeverancierID;
-                //cbCategorie.SelectedValue = selectedProduct.CategorieID;
-                //}
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                var selectedProduct = (Product)cbProduct.SelectedItem;
+                tbNaam.Text = selectedProduct.Naam;
+                tbInkoopprijs.Text = selectedProduct.InKoopprijs.ToString();
+                tbMarge.Text = selectedProduct.Marge.ToString();
+                tbEenheid.Text = selectedProduct.Eenheid;
+                tbBtw.Text = selectedProduct.BTW.ToString();
+               cbLeverancier.SelectedValue = selectedProduct.LeverancierID;
+                cbCategorie.SelectedValue = selectedProduct.CategorieID;
+                
             }
+        }
        
     }
 }
