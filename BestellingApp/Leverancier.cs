@@ -14,6 +14,13 @@ namespace BestellingApp
     
     public partial class Leverancier
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Leverancier()
+        {
+            this.Bestelling = new HashSet<Bestelling>();
+            this.Product = new HashSet<Product>();
+        }
+    
         public int LeverancierID { get; set; }
         public string Contactpersoon { get; set; }
         public string Telefoonnummer { get; set; }
@@ -23,5 +30,10 @@ namespace BestellingApp
         public string Bus { get; set; }
         public string Postcode { get; set; }
         public string Gemeente { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestelling> Bestelling { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

@@ -14,11 +14,20 @@ namespace BestellingApp
     
     public partial class Personeelslid
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Personeelslid()
+        {
+            this.Bestelling = new HashSet<Bestelling>();
+        }
+    
         public int PersoneelslidID { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
         public Nullable<int> FunctieID { get; set; }
         public string Usernaam { get; set; }
         public string Wachtwoord { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestelling> Bestelling { get; set; }
     }
 }

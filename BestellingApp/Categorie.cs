@@ -14,7 +14,16 @@ namespace BestellingApp
     
     public partial class Categorie
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Categorie()
+        {
+            this.Product = new HashSet<Product>();
+        }
+    
         public int CategorieID { get; set; }
         public string CategorieNaam { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

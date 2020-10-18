@@ -14,6 +14,12 @@ namespace BestellingApp
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.BestellingProduct = new HashSet<BestellingProduct>();
+        }
+    
         public int ProductID { get; set; }
         public string Naam { get; set; }
         public Nullable<double> InKoopprijs { get; set; }
@@ -22,5 +28,10 @@ namespace BestellingApp
         public Nullable<double> BTW { get; set; }
         public Nullable<int> LeverancierID { get; set; }
         public Nullable<int> CategorieID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BestellingProduct> BestellingProduct { get; set; }
+        public virtual Categorie Categorie { get; set; }
+        public virtual Leverancier Leverancier { get; set; }
     }
 }

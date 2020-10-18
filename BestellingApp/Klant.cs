@@ -14,6 +14,12 @@ namespace BestellingApp
     
     public partial class Klant
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Klant()
+        {
+            this.Bestelling = new HashSet<Bestelling>();
+        }
+    
         public int KlantID { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
@@ -26,5 +32,8 @@ namespace BestellingApp
         public string Emailadres { get; set; }
         public string AangemaaktOp { get; set; }
         public string Opmerking { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestelling> Bestelling { get; set; }
     }
 }
