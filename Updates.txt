@@ -22,3 +22,9 @@ Product toevoegen,Bewerken,Verwijderen design and coding.
 Personeelslid toevoegen,Bewerken,Verwijderen design and coding.
 Testing and Error Handling.
 Bestelling Tab loading.
+
+Oktober 16 2020
+Bestelling and Bestelling product tabels Toevoegen,Bewerken, Verwijderen.
+Learned over ListView control.
+Overzicht tab gestart.
+Testing and ErrorHandling of DataBeheer Tab.

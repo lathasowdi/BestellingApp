@@ -13,6 +13,15 @@
         <EntityTypeShape EntityType="BestellingenAppModel.Leverancier" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BestellingenAppModel.Personeelslid" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BestellingenAppModel.Product" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Bestelling_Klant" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Bestelling_Leverancier" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Bestelling_Personeelslid" />
+        <AssociationConnector Association="BestellingenAppModel.FK_BestellingProduct_Bestelling" />
+        <AssociationConnector Association="BestellingenAppModel.FK_BestellingProduct_Product" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Product_Categorie" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Functie_Functie" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Klant_Klant" />
+        <AssociationConnector Association="BestellingenAppModel.FK_Product_Leverancier" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
