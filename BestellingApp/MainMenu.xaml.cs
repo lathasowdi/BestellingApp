@@ -24,22 +24,53 @@ namespace BestellingApp
         public MainMenu(Personeelslid loggedin)
         {
             InitializeComponent();
+           
             loggedinpersoneelid = loggedin;
+            loginNaam.Content = "WELKOM" + " " + loggedinpersoneelid.Voornaam.ToUpper()+ " " + loggedinpersoneelid.Achternaam.ToUpper();
             if (loggedinpersoneelid.FunctieID== 1)
             {
+                tabKlant.IsSelected = true;
+                tabKlant.Visibility = Visibility.Visible;
+                tabProduct.IsSelected = true;
+                tabProduct.Visibility = Visibility.Visible;
+                tabLeverancier.IsSelected = true;
+                tabLeverancier.Visibility = Visibility.Visible;
+                tabPersoneel.IsSelected = true;
+                tabPersoneel.Visibility = Visibility.Visible;
+                tabCategorie.IsSelected = true;
+                tabCategorie.Visibility = Visibility.Visible;
+            }
+            else if(loggedinpersoneelid.FunctieID==2)
+            {
+                tabKlant.IsSelected = false;
+                tabKlant.Visibility = Visibility.Hidden;
+                tabProduct.IsSelected = false;
+                tabProduct.Visibility = Visibility.Hidden;
+                tabLeverancier.IsSelected = true;
+                tabLeverancier.Visibility = Visibility.Visible;
+                tabPersoneel.IsSelected = false;
+                tabPersoneel.Visibility = Visibility.Hidden;
+                tabCategorie.IsSelected = false;
+                tabCategorie.Visibility = Visibility.Hidden;
 
-                tabDatabeheer.IsSelected=true;
-                tabDatabeheer.Visibility = Visibility.Visible;
+
             }
             else
             {
-                tabDatabeheer.IsSelected = false;
-                tabDatabeheer.Visibility = Visibility.Hidden;
+                tabKlant.IsSelected = true;
+                tabKlant.Visibility = Visibility.Visible;
+                tabProduct.IsSelected = false;
+                tabProduct.Visibility = Visibility.Hidden;
+                tabLeverancier.IsSelected =false;
+                tabLeverancier.Visibility = Visibility.Hidden;
+                tabPersoneel.IsSelected = false;
+                tabPersoneel.Visibility = Visibility.Hidden;
+                tabCategorie.IsSelected = false;
+                tabCategorie.Visibility = Visibility.Hidden;
 
             }
-            
         }
-
+       
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             KlantBeheer klantBeheer = new KlantBeheer();
@@ -155,6 +186,41 @@ namespace BestellingApp
 
         }
 
-       
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
+
+        private void btnLeverancierOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            LeverancierOverzicht leverancierOverzicht = new LeverancierOverzicht();
+            leverancierOverzicht.Show();
+        }
+
+        private void btnKlantOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            KlantOverzicht klantOverzicht = new KlantOverzicht();
+            klantOverzicht.Show();
+        }
+
+        private void btnProductOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            ProductOverzicht productOverzicht = new ProductOverzicht();
+            productOverzicht.Show();
+        }
+
+        private void btnCategorieOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            CategorieOverzicht categorieOverzicht = new CategorieOverzicht();
+            categorieOverzicht.Show();
+        }
+
+        private void btnPersoneellidOverzicht_Click(object sender, RoutedEventArgs e)
+        {
+            PersoneelslidOverzicht personeelslidOverzicht = new PersoneelslidOverzicht();
+            personeelslidOverzicht.Show();
+        }
     }
 }

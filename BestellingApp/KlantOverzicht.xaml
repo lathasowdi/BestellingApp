@@ -1,0 +1,30 @@
+﻿<Window x:Class="BestellingApp.KlantOverzicht"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BestellingApp"
+        mc:Ignorable="d"
+        Title="KlantOverzicht" Height="450" Width="800">
+    <Grid>
+        <ListView Name="listgrid" Margin="0,5,-3,219">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Voornaam}" Header="Voornaam" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Achternaam}" Header="Achternaam" Width="80"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Straatnaam }" Header="Straatnaam" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Huisnummer}" Header="Huisnummer" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Bus}" Header="Bus" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Postcode}" Header="Postcode" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Gemeente}" Header="Gemeente" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Telefoonnummer}" Header="Telefoon" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Emailadres }" Header="Emailadres" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding AangemaaktOp }" Header="AangemaaktOp" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Opmerking }" Header=" Opmerking" Width="100"></GridViewColumn>
+                </GridView>
+                 
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>

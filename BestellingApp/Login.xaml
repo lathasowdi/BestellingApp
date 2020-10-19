@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LOGIN" Height="450" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
-        Background="Aquamarine">
+        Title="LOGIN" Height="300" Width="300" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  >
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
             <Label Name ="lblLogin" Content="LOGIN" HorizontalAlignment="Center" FontSize="25" Foreground="PaleVioletRed" Width="100"/>

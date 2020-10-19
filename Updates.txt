@@ -28,3 +28,10 @@ Bestelling and Bestelling product tabels Toevoegen,Bewerken, Verwijderen.
 Learned over ListView control.
 Overzicht tab gestart.
 Testing and ErrorHandling of DataBeheer Tab.
+
+Oktober 19 2020
+Overzicht tab klant,Leverancier,Product,Bestelling,BestellingProduct added new form and coding started.
+BestellingProduct started.
+
+
+

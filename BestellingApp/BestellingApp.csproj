@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CategorieOverzicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KlantAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +108,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="KlantOverzicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeverancierAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LeverancierEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeverancierOverzicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +181,9 @@
     <Compile Include="CategorieEdit.xaml.cs">
       <DependentUpon>CategorieEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CategorieOverzicht.xaml.cs">
+      <DependentUpon>CategorieOverzicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Functie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
@@ -184,6 +199,9 @@
     <Compile Include="KlantEdit.xaml.cs">
       <DependentUpon>KlantEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KlantOverzicht.xaml.cs">
+      <DependentUpon>KlantOverzicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Leverancier.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
@@ -195,6 +213,9 @@
     </Compile>
     <Compile Include="LeverancierEdit.xaml.cs">
       <DependentUpon>LeverancierEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeverancierOverzicht.xaml.cs">
+      <DependentUpon>LeverancierOverzicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -216,6 +237,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PersoneelslidOverzicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProductAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductOverzicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,6 +274,9 @@
     <Compile Include="Personeelslid.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PersoneelslidOverzicht.xaml.cs">
+      <DependentUpon>PersoneelslidOverzicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
     </Compile>
@@ -256,6 +288,9 @@
     </Compile>
     <Compile Include="ProductEdit.xaml.cs">
       <DependentUpon>ProductEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductOverzicht.xaml.cs">
+      <DependentUpon>ProductOverzicht.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
