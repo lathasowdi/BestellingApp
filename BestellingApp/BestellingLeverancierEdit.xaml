@@ -1,0 +1,55 @@
+﻿<Window x:Class="BestellingApp.BestellingLeverancierEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BestellingApp"
+        mc:Ignorable="d"
+        Title="BestellingLeverancierEdit" Height="450" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblBestelling" Content="BESTELLING LEVERANCIER EDIT" HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="200"/>
+            <Separator></Separator>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name="lblBestellingklant"   Content="BestellingLeverancier" Width="160" />
+                <ComboBox x:Name="cbBestellingKlant" HorizontalContentAlignment="Center" Width="200" IsEnabled="False" SelectionChanged="cbBestellingKlant_SelectionChanged" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label  Name ="lblAangemaaktop" Content="Datum" Width="110" />
+                <DatePicker x:Name="dtDatumOpgemaakt"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Personeelslid" Width="110" />
+                <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name="lblLeverancier"  Content="Leverancier" Width="110" />
+                <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Product" Width="110" />
+                <ComboBox x:Name="cbProduct" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Aantal" Width="110" />
+                <TextBox x:Name="tbAantal" HorizontalContentAlignment="Center" Width="200" ></TextBox>
+            </StackPanel>
+
+            <StackPanel>
+                <Button Name="btnEdit" Content ="Edit"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnEdit_Click"/>
+                
+            </StackPanel>
+            <StackPanel>
+                <Button Name="btnDelete" Content ="DELETE"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnDelete_Click"/>
+            </StackPanel>
+
+
+        </StackPanel>
+    </Border>
+</Window>
+

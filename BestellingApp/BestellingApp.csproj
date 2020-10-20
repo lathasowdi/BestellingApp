@@ -68,15 +68,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BestellingBekijk.xaml">
+    <Page Include="BestellingKlantEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BestellingEdit.xaml">
+    <Page Include="BestellingKlantAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BestellingProductAdd.xaml">
+    <Page Include="BestellingLeverancierAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BestellingLeverancierEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,9 +146,6 @@
     <Compile Include="BestellingAdd.xaml.cs">
       <DependentUpon>BestellingAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BestellingBekijk.xaml.cs">
-      <DependentUpon>BestellingBekijk.xaml</DependentUpon>
-    </Compile>
     <Compile Include="BestellingDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,14 +161,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BestellingDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="BestellingEdit.xaml.cs">
-      <DependentUpon>BestellingEdit.xaml</DependentUpon>
+    <Compile Include="BestellingKlantEdit.xaml.cs">
+      <DependentUpon>BestellingKlantEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingKlantAdd.xaml.cs">
+      <DependentUpon>BestellingKlantAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingLeverancierAdd.xaml.cs">
+      <DependentUpon>BestellingLeverancierAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingLeverancierEdit.xaml.cs">
+      <DependentUpon>BestellingLeverancierEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="BestellingProduct.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BestellingProductAdd.xaml.cs">
-      <DependentUpon>BestellingProductAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Categorie.cs">
       <DependentUpon>BestellingDataModel.tt</DependentUpon>

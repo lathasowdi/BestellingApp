@@ -61,13 +61,13 @@ namespace BestellingApp
             {
                 using (BestellingenEntities ctx = new BestellingenEntities())
                 {
-                    Personeelslid loggedin = ctx.Personeelslid.Where(p => p.Usernaam == usernaam).FirstOrDefault();
+                   Personeelslid loggedin = ctx.Personeelslid.Where(p => p.Usernaam == usernaam).FirstOrDefault();
                     if (loggedin != null)
                     {
                         if (loggedin.Wachtwoord == wachtwoord)
                         {
                             MainMenu mainMenu = new MainMenu(loggedin);
-
+                           
                             mainMenu.Show();
                             this.Close();
                         }

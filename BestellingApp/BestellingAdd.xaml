@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="BestellingAdd" Height="550" Width="450" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="BestellingAdd" Height="950" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
             <Label Name ="lblBestelling" Content="BESTELLING ADD" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="150"/>
             <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Bestelling" Width="110" />
-                <ComboBox x:Name="cbBestelling" HorizontalContentAlignment="Center" Width="200" IsEnabled="False" SelectionChanged="cbBestelling_SelectionChanged" ></ComboBox>
+                <Label Name="lblBestellingklant"   Content="BestellingKlant" Width="160" />
+                <ComboBox x:Name="cbBestellingKlant" HorizontalContentAlignment="Center" Width="200" IsEnabled="False" SelectionChanged="cbBestelling_SelectionChanged" ></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name="lblBestellingLeverancier"  Content="BestellingLeverancier" Width="160" />
+                <ComboBox x:Name="cbBestellingLeverancier" HorizontalContentAlignment="Center" Width="200" IsEnabled="False" SelectionChanged="cbBestelling_SelectionChanged" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label   Content="Edit/Delete" Width="110" />
-                <CheckBox x:Name="chbEdit" HorizontalContentAlignment="Center" Width="200" Checked="chbEdit_Checked" Unchecked="chbEdit_Unchecked"  ></CheckBox>
+                <CheckBox x:Name="chbEdit" HorizontalContentAlignment="Center" Width="200" Checked="chbEdit_Checked" Unchecked="chbEdit_Unchecked"  />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label   Content="Bekijk" Width="110" />
@@ -32,15 +36,29 @@
                 <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Leverancier" Width="110" />
+                <Label Name="lblLeverancier"   Content="Leverancier" Width="110" />
                 <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Klant" Width="110" />
+                <Label Name="lblKlant"  Content="Klant" Width="110" />
                 <ComboBox x:Name="cbKlant" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Categorie" Width="110" />
+                <ComboBox x:Name="cbCategorie" HorizontalContentAlignment="Center" Width="200"  ></ComboBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Product" Width="110" />
+                <ComboBox x:Name="cbProduct" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
+            </StackPanel>
 
-        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Aantal" Width="110" />
+                <TextBox x:Name="tbAantal" HorizontalContentAlignment="Center" Width="200" ></TextBox>
+            </StackPanel>
+
+            <StackPanel>
         <Button Name="btnAdd" Content ="ADD"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnAdd_Click"/>
         </StackPanel>
             <StackPanel>

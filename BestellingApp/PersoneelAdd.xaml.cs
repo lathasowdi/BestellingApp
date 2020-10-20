@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace BestellingApp
                 cbFunctie.SelectedIndex = 0;
             }
         }
-
+       public bool Isunique = false;
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
@@ -61,6 +62,13 @@ namespace BestellingApp
                 if (tbUsernaam.Text.Trim() != "")
                 {
                     usernaam = tbUsernaam.Text.Trim();
+                    Isuniqu(usernaam);
+                    if(!Isunique)
+                    {
+                        MessageBox.Show("Usernaam bestaat al");
+                        tbUsernaam.Clear();
+                        tbUsernaam.Focus();
+                    }
                 }
                 else
                 {
@@ -75,17 +83,45 @@ namespace BestellingApp
                 {
                     MessageBox.Show("Geef Wachtwoord a.u.b");
                 }
-                
-               Personeelslid nieuwepersoneelslid = new Personeelslid();
-                nieuwepersoneelslid.Voornaam = voornaam;
-                nieuwepersoneelslid.Achternaam = achternaam;
-                nieuwepersoneelslid.FunctieID= functieID;
-                nieuwepersoneelslid.Usernaam= usernaam;
-                nieuwepersoneelslid.Wachtwoord = wachtwoord;
-                ctx.Personeelslid.Add(nieuwepersoneelslid);
-                ctx.SaveChanges();
-                MessageBox.Show("Personeelslid Toevoegd");
+                if (Isunique)
+                {
+                    Personeelslid nieuwepersoneelslid = new Personeelslid();
+                    nieuwepersoneelslid.Voornaam = voornaam;
+                    nieuwepersoneelslid.Achternaam = achternaam;
+                    nieuwepersoneelslid.FunctieID = functieID;
+                    nieuwepersoneelslid.Usernaam = usernaam;
+                    nieuwepersoneelslid.Wachtwoord = wachtwoord;
+                    ctx.Personeelslid.Add(nieuwepersoneelslid);
+                    ctx.SaveChanges();
+                    MessageBox.Show("Personeelids Toegevoeged");
+                }
+                else
+                {
+                    MessageBox.Show("Usernaam bestaat al");
+                }
+               
             }
+        }
+        private bool Isuniqu(string naam)
+        {
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                var Usernaam = ctx.Personeelslid.Select(x => x.Usernaam).ToList();
+                foreach (var item in Usernaam)
+                {
+
+                    if (naam.ToLower() == item.ToLower())
+                    {
+                        Isunique = false;
+                    }
+                    else
+                    {
+                        Isunique = true;
+                    }
+
+                }
+            }
+            return Isunique;
         }
     }
     

@@ -52,7 +52,16 @@ namespace BestellingApp
                 tabPersoneel.Visibility = Visibility.Hidden;
                 tabCategorie.IsSelected = false;
                 tabCategorie.Visibility = Visibility.Hidden;
-
+                tabKlantBestelling.IsSelected = false;
+                tabKlantBestelling.Visibility = Visibility.Hidden;
+                btnProductOverzicht.IsEnabled = false;
+                btnProductOverzicht.Visibility = Visibility.Hidden;
+                btnPersoneellidsoverzicht.IsEnabled = false;
+                btnPersoneellidsoverzicht.Visibility = Visibility.Hidden;
+                btnKlantOverzicht.IsEnabled = false;
+                btnKlantOverzicht.Visibility = Visibility.Hidden;
+                btnCategorieOverzicht.IsEnabled = false;
+                btnCategorieOverzicht.Visibility = Visibility.Hidden;
 
             }
             else
@@ -67,7 +76,16 @@ namespace BestellingApp
                 tabPersoneel.Visibility = Visibility.Hidden;
                 tabCategorie.IsSelected = false;
                 tabCategorie.Visibility = Visibility.Hidden;
-
+                tabLeverancierBestelling.IsSelected = false;
+                tabLeverancierBestelling.Visibility = Visibility.Hidden;
+                btnProductOverzicht.IsEnabled = false;
+                btnProductOverzicht.Visibility = Visibility.Hidden;
+                btnPersoneellidsoverzicht.IsEnabled = false;
+                btnPersoneellidsoverzicht.Visibility = Visibility.Hidden;
+                btnLeverancierOverzicht.IsEnabled = false;
+                btnLeverancierOverzicht.Visibility = Visibility.Hidden;
+                btnCategorieOverzicht.IsEnabled = false;
+                btnCategorieOverzicht.Visibility = Visibility.Hidden;
             }
         }
        
@@ -177,14 +195,6 @@ namespace BestellingApp
             bestellingAdd.Show();
         }
 
-       
-
-        
-
-        private void btnBestellingProductToevoegen_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
@@ -221,6 +231,38 @@ namespace BestellingApp
         {
             PersoneelslidOverzicht personeelslidOverzicht = new PersoneelslidOverzicht();
             personeelslidOverzicht.Show();
+        }
+
+        private void btnKlantBestellingToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+            BestellingKlantAdd bestellingKlantAdd = new BestellingKlantAdd();
+            bestellingKlantAdd.Show();
+        }
+
+        private void btnklantBestellingBewerken_Click(object sender, RoutedEventArgs e)
+        {
+            BestellingEdit bestellingEdit = new BestellingEdit();
+            bestellingEdit.Show();
+        }
+
+        private void btnKlantBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLeverancierBestellingToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLeverancierBestellingBewerken_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLeverancierBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

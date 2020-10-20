@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace BestellingApp
 {
     /// <summary>
-    /// Interaction logic for BestellingProductAdd.xaml
+    /// Interaction logic for BestellingLeverancierEdit.xaml
     /// </summary>
-    public partial class BestellingProductAdd : Window
+    public partial class BestellingLeverancierEdit : Window
     {
-        public BestellingProductAdd()
+        public BestellingLeverancierEdit()
         {
             InitializeComponent();
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

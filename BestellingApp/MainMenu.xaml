@@ -75,16 +75,33 @@
                         
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="BESTELLING">
+                <TabItem Header="BESTELLING" x:Name="tabBestelling"  Background="BlanchedAlmond">
                     <StackPanel>
-
-                        <Button Name="btnBestellingToevoegen" Content ="BESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBestellingToevoegen_Click"/>
-
-                        <Button Name="btnBestellingProductToevoegen" Content ="BESTELLING PRODUCT TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBestellingProductToevoegen_Click"/>
+                        <TabControl>
+                            <TabItem Header="KLANT"  x:Name="tabKlantBestelling" >
+                                <StackPanel>
+                                    <Button Name="btnKlantBestellingToevoegen" Content =" KLANTBESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantBestellingToevoegen_Click"/>
+                                    <Button Name="btnklantBestellingBewerken" Content =" BEWERKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnklantBestellingBewerken_Click"/>
+                                   
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="LEVERANCIER" x:Name="tabLeverancierBestelling">
+                                <StackPanel>
+                                    <Button Name="btnLeverancierBestellingToevoegen" Content ="BESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBestellingToevoegen_Click"/>
+                                    <Button Name="btnLeverancierBestellingBewerken" Content =" BEWERKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBestellingBewerken_Click"/>
+                                    
+                                </StackPanel>
+                            </TabItem>
+                    
+               
+            </TabControl>
                     </StackPanel>
                 </TabItem>
             </TabControl>
-            <StackPanel>
+                <StackPanel>
+        </StackPanel>
+      
+        <StackPanel>
                 <Button Content="LOGOUT" Margin="370,0,405,0" RenderTransformOrigin="0.435,1.5" Height="30" Background="GreenYellow" HorizontalContentAlignment="Center" x:Name="btnLogout" Click="btnLogout_Click"/>
             </StackPanel>
         </StackPanel>

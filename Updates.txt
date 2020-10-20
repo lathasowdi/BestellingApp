@@ -33,5 +33,10 @@ Oktober 19 2020
 Overzicht tab klant,Leverancier,Product,Bestelling,BestellingProduct added new form and coding started.
 BestellingProduct started.
 
+Oktober 20 2020
+Bestelling tab gewerkt.
+Overzicht tab gewerkt.
+testing en error handling.
+
 
 
