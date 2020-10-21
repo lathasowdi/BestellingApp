@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="BestellingklantAdd" Height="450" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="BestellingklantAdd" Height="550" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
@@ -35,10 +35,21 @@
                 <Label   Content="Aantal" Width="110" />
                 <TextBox x:Name="tbAantal" HorizontalContentAlignment="Center" Width="200" ></TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Lijst" Width="110" />
+                <ListBox x:Name="lbLijst" HorizontalContentAlignment="Center" Width="200" Height="100"></ListBox>
+            </StackPanel>
 
             <StackPanel>
-                <Button Name="btnAdd" Content ="ADD"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnAdd_Click"/>
+                <Button Name="btnAdd" Content ="TOEVOEGEN ANN LIJST"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnAdd_Click" RenderTransformOrigin="0.479,4.1"/>
             </StackPanel>
+            <StackPanel>
+                <Button Name="btnRemove" Content ="VERWIJDER UIT LIJST"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnRemove_Click" RenderTransformOrigin="0.479,4.1"/>
+            </StackPanel>
+            <StackPanel>
+                <Button Name="btnBestel" Content ="BESTELLING"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnBestel_Click" RenderTransformOrigin="0.479,4.1"/>
+            </StackPanel>
+            
             
             
         </StackPanel>

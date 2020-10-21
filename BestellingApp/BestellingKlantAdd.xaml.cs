@@ -36,7 +36,7 @@ namespace BestellingApp
                 cbPersoneelslid.DisplayMemberPath = "lid";
                 cbPersoneelslid.SelectedValuePath = "ID";
                 cbPersoneelslid.ItemsSource = Personeellidquery;
-                cbPersoneelslid.SelectedIndex = 0;
+                cbPersoneelslid.SelectedIndex = -1;
             }
         }
         private void Updatecbklant()
@@ -48,7 +48,7 @@ namespace BestellingApp
                 cbKlant.DisplayMemberPath = "Naam";
                 cbKlant.SelectedValuePath = "Id";
                 cbKlant.ItemsSource = Klantquery;
-                cbKlant.SelectedIndex = 0;
+                cbKlant.SelectedIndex =-1;
             }
         }
         private void UpdatecbProduct()
@@ -59,37 +59,122 @@ namespace BestellingApp
                 cbProduct.DisplayMemberPath = "Naam";
                 cbProduct.SelectedValuePath = "ProductID";
                 cbProduct.ItemsSource = Productquery;
-                cbProduct.SelectedIndex = 0;
+                cbProduct.SelectedIndex = -1;
+            }
+        }
+        public List<klantBesteling> KlantProductLijst = new List<klantBesteling>();
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorHandling();
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                var selectedProduct = ctx.Product.Single(p => p.ProductID == (int)cbProduct.SelectedValue);
+                klantBesteling product = new klantBesteling(selectedProduct.ProductID, selectedProduct.Naam, Convert.ToInt32(tbAantal.Text));
+                KlantProductLijst.Add(product);
+                UpdatelbLijst();
+            }
+        }
+        public void UpdatelbLijst()
+        {
+           lbLijst.ItemsSource = null;
+            lbLijst.ItemsSource = KlantProductLijst;
+            lbLijst.DisplayMemberPath = "Naam";
+            lbLijst.SelectedValuePath = "ProductID";
+
+        }
+        public class klantBesteling
+        {
+            public int ProductID { get; set; }
+            public string Naam { get; set; }
+            public int Aantal { get; set; }
+
+            public klantBesteling(int productid, string naam, int aantal)
+            {
+                ProductID = productid;
+                Naam = naam;
+                Aantal = aantal;
+            }
+        }
+        public void ErrorHandling()
+        {
+            string errorshow = "";
+            
+            if (cbProduct.SelectedIndex <= 0)
+            {
+                errorshow += "Select een Product";
+            }
+            if (cbPersoneelslid.SelectedIndex < 0)
+            {
+                errorshow += "\r\n" + "Select een Personeelslid a.u.b";
+            }
+
+            if (cbKlant.SelectedIndex < 0)
+            {
+                errorshow += "\r\n" + "Select een Klant a.u.b";
+            }
+
+            if (tbAantal.Text.Trim().Length == 0)
+            {
+
+                errorshow += "\r\n" + "Geef Aantal a.u.b";
+            }
+            
+
+            if (errorshow.Trim().Length > 0)
+            {
+                MessageBox.Show(errorshow);
             }
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnBestel_Click(object sender, RoutedEventArgs e)
         {
-            using (BestellingenEntities ctx = new BestellingenEntities())
+            if (KlantProductLijst.Count > 0)
             {
-                Bestelling bestelling = new Bestelling();
-                bestelling.DatumOpgemaakt = (DateTime)dtDatumOpgemaakt.SelectedDate;
-                bestelling.PersoneelslidID = (int)cbPersoneelslid.SelectedValue;
-                bestelling.KlantID = (int)cbKlant.SelectedValue;
-                ctx.Bestelling.Add(bestelling);
-                ctx.SaveChanges();
-                BestellingProduct bestellingProduct = new BestellingProduct();
-                bestellingProduct.BestellingID = bestelling.BestellingID;
-                bestellingProduct.ProductID= (int)cbProduct.SelectedValue;
-                int aantal = 0;
-                if (tbAantal.Text.Trim() != "")
+                using (BestellingenEntities ctx = new BestellingenEntities())
                 {
-                    aantal = Convert.ToInt32(tbAantal.Text);
+                    Bestelling bestelling = new Bestelling();
+                    bestelling.DatumOpgemaakt = (DateTime)dtDatumOpgemaakt.SelectedDate;
+                    bestelling.PersoneelslidID = (int)cbPersoneelslid.SelectedValue;
+                    bestelling.KlantID = (int)cbKlant.SelectedValue;
+                    ctx.Bestelling.Add(bestelling);
+                    ctx.SaveChanges();
+                    foreach (var item in KlantProductLijst)
+                    {
+                        BestellingProduct bestellingProduct = new BestellingProduct();
+                        bestellingProduct.BestellingID = bestelling.BestellingID;
+                        bestellingProduct.ProductID = (int)cbProduct.SelectedValue;
+                        int aantal = 0;
+                        if (tbAantal.Text.Trim() != "")
+                        {
+                            aantal = Convert.ToInt32(tbAantal.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Geef Aantal a.u.b");
+                        }
+                        bestellingProduct.Aantal = aantal;
+                        ctx.BestellingProduct.Add(bestellingProduct);
+                        ctx.SaveChanges();
+                    }
+                   
                 }
-                else
-                {
-                    MessageBox.Show("Geef Aantal a.u.b");
-                }
-                bestellingProduct.Aantal = aantal;
-                ctx.BestellingProduct.Add(bestellingProduct);
-                ctx.SaveChanges();
+                MessageBox.Show("Bestelling is Toevoegen");
             }
-            MessageBox.Show("Bestelling is Toevoegen");
+           
+            KlantProductLijst.Clear();
+            lbLijst.ItemsSource = null;
+           tbAantal.Clear();
+            cbProduct.SelectedIndex = -1;
+            cbPersoneelslid.SelectedIndex = -1;
+            cbKlant.SelectedIndex = -1;
+        }
+           
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if(lbLijst.SelectedIndex != -1)
+            KlantProductLijst.RemoveAt(lbLijst.SelectedIndex);
+            UpdatelbLijst();
         }
     }
 }
