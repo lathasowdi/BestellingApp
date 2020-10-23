@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+
 
 namespace BestellingApp
 {
@@ -19,7 +21,7 @@ namespace BestellingApp
     /// </summary>
     public partial class MainMenu : Window
     {
-        public Personeelslid loggedinpersoneelid=new Personeelslid();
+        public Personeelslid loggedinpersoneelid { get; set; }
        
         public MainMenu(Personeelslid loggedin)
         {
@@ -62,6 +64,12 @@ namespace BestellingApp
                 btnKlantOverzicht.Visibility = Visibility.Hidden;
                 btnCategorieOverzicht.IsEnabled = false;
                 btnCategorieOverzicht.Visibility = Visibility.Hidden;
+                tabKlantBestelling.IsEnabled = false;
+                tabKlantBestelling.Visibility = Visibility.Hidden;
+                btnKlantBestellingToevoegen.IsEnabled = false;
+                btnKlantBestellingToevoegen.Visibility = Visibility.Hidden;
+                btnklantBestellingBewerken.IsEnabled = false;
+                btnklantBestellingBewerken.Visibility = Visibility.Hidden;
 
             }
             else
@@ -86,6 +94,19 @@ namespace BestellingApp
                 btnLeverancierOverzicht.Visibility = Visibility.Hidden;
                 btnCategorieOverzicht.IsEnabled = false;
                 btnCategorieOverzicht.Visibility = Visibility.Hidden;
+                tabLeverancierBestelling.IsEnabled = false;
+                tabLeverancierBestelling.Visibility = Visibility.Hidden;
+                btnLeverancierBestellingToevoegen.IsEnabled = false;
+                btnLeverancierBestellingBewerken.IsEnabled = false;
+                btnLeverancierBestellingToevoegen.Visibility = Visibility.Hidden;
+                btnLeverancierBestellingBewerken.Visibility = Visibility.Hidden;
+                tabAanpassen.IsEnabled = false;
+                tabAanpassen.Visibility = Visibility.Hidden;
+                btnCreate.IsEnabled = false;
+                btnCreate.Visibility = Visibility.Hidden;
+                btnEdit.IsEnabled = false;
+                btnEdit.Visibility = Visibility.Hidden;
+
             }
         }
        
@@ -235,14 +256,13 @@ namespace BestellingApp
 
         private void btnKlantBestellingToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            BestellingKlantAdd bestellingKlantAdd = new BestellingKlantAdd();
+            BestellingKlantAdd bestellingKlantAdd = new BestellingKlantAdd(loggedinpersoneelid);
             bestellingKlantAdd.Show();
         }
 
         private void btnklantBestellingBewerken_Click(object sender, RoutedEventArgs e)
         {
-            BestellingEdit bestellingEdit = new BestellingEdit();
-            bestellingEdit.Show();
+           
         }
 
         private void btnKlantBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
@@ -252,7 +272,8 @@ namespace BestellingApp
 
         private void btnLeverancierBestellingToevoegen_Click(object sender, RoutedEventArgs e)
         {
-
+            BestellingLeverancierAdd bestellingLeverancierAdd = new BestellingLeverancierAdd(loggedinpersoneelid);
+            bestellingLeverancierAdd.Show();
         }
 
         private void btnLeverancierBestellingBewerken_Click(object sender, RoutedEventArgs e)
@@ -261,6 +282,16 @@ namespace BestellingApp
         }
 
         private void btnLeverancierBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
 
         }

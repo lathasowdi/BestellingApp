@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="ProductOverzicht" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+       Title="ProductOverzicht" Height="800" Width="700" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblProduct" Content="PRODUCT OVERZICHT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="220"/>
+            <Separator></Separator>
+            <StackPanel Orientation="Horizontal" Margin="5" >
+                <Label  Name ="lblSort" Content="SORTENOP" Width="110" />
+                <ComboBox x:Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Width="203" Height="44" />
+
+
+                <Label  Name ="lblLijst" Content="  PRODUCT LIJST " Width="140" />
+                <ListBox x:Name="lbProducts"  Height="200"    Width="145">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Naam}"/>
+                                <TextBlock Text=" "/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,4,5">
+                <ListView Name="listgrid" Width="580" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding pc.p.Naam}" Header="Naam" Width="90"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding pc.p.InKoopprijs}" Header="InKoopprijs" Width="80"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding pc.p.Marge}" Header="Marge" Width="50"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding pc.p.Eenheid}" Header="Eenheid" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding pc.p.BTW}" Header="BTW" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding l.Contactpersoon}" Header="Leverancier" Width="80"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding pc.c.CategorieNaam}" Header="Categorie" Width="100"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Border>
 </Window>

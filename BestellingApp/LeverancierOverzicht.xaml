@@ -5,24 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LeverancierOverzicht" Height="450" Width="800">
-    
-        <Grid>
-            <ListView Name="listgrid" Margin="0,5,-3,219">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Contactpersoon}" Header="ContactPersoon" Width="120"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Telefoonnummer}" Header="Telefoon" Width="80"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Emailadres}" Header="Email" Width="120"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Straatnaam}" Header="Straat" Width="100"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Huisnummer}" Header="Huisnum" Width="60"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Bus}" Header="Bus" Width="60"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Postcode}" Header="Postcode" Width="100"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Gemeente}" Header="Gemeente" Width="100"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
+        Title="LeverancierOverzicht" Height="600" Width="850" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblklant" Content="LEVERANCIER OVERZICHT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="220"/>
+            <Separator></Separator>
+            <StackPanel Orientation="Horizontal" Margin="5" >
+                <Label  Name ="lblSort" Content="SORTENOP" Width="110" />
+                <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged" Width="203" Height="44" />
 
-            </ListView>
-        </Grid>
-   
+
+                <Label  Name ="lblLijst" Content="  LEVERANCIER LIJST " Width="140" />
+                <ListBox x:Name="lbleveranciers"  Height="160"    Width="145">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Contactpersoon}"/>
+                                <TextBlock Text=" "/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,4,5">
+                <ListView Name="listgrid" Width="800" >
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn DisplayMemberBinding="{Binding Contactpersoon}" Header="ContactPersoon" Width="110"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Telefoonnummer}" Header="Telefoon" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Emailadres}" Header="Email" Width="150"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Straatnaam}" Header="Straat" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Huisnummer}" Header="Huisnum" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Bus}" Header="Bus" Width="60"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Postcode}" Header="Postcode" Width="70"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Gemeente}" Header="Gemeente" Width="100"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Border>
 </Window>
+

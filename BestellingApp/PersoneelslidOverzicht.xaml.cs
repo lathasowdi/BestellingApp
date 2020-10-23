@@ -22,6 +22,15 @@ namespace BestellingApp
         public PersoneelslidOverzicht()
         {
             InitializeComponent();
+            BestellingenEntities ctx = new BestellingenEntities();
+
+            var PersoneelslidList = ctx.Personeelslid.Join(
+                            ctx.Functie,
+                            p => p.FunctieID,
+                           f => f.FunctieID,
+                            (p, f) => new { p, f }).ToList();
+
+            listgrid.ItemsSource = PersoneelslidList;
         }
     }
 }

@@ -62,10 +62,17 @@
                                     <Button Name="btnPersoneelVerwijderen" Content ="PERSONEEL VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnPersoneelVerwijderen_Click"/>
                                 </StackPanel>
                             </TabItem>
+                            <TabItem Header="PRODUCTINFORMATIEAANPASSEN" x:Name="tabAanpassen">
+                                <StackPanel>
+                                    <Button Name="btnCreate" Content ="BESTANDMAKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnCreate_Click"/>
+                                    <Button Name="btnEdit" Content ="BESTANDBEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnEdit_Click"/>
+                                   
+                                </StackPanel>
+                            </TabItem>
                         </TabControl>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="OVERZICHT">
+                <TabItem Header="OVERZICHT" Background="BlanchedAlmond">
                     <StackPanel>
                         <Button Name="btnKlantOverzicht" Content ="KLANTOVERZICHT" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantOverzicht_Click"/>
                         <Button Name="btnLeverancierOverzicht" Content ="LEVERANCIEROVERZICHT" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierOverzicht_Click"/>
@@ -102,7 +109,7 @@
         </StackPanel>
       
         <StackPanel>
-                <Button Content="LOGOUT" Margin="370,0,405,0" RenderTransformOrigin="0.435,1.5" Height="30" Background="GreenYellow" HorizontalContentAlignment="Center" x:Name="btnLogout" Click="btnLogout_Click"/>
+                <Button Content="LOGOUT" Margin="545,0,405,0" RenderTransformOrigin="0.435,1.5" Height="30" Background="BlanchedAlmond" HorizontalContentAlignment="Center" x:Name="btnLogout" Click="btnLogout_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

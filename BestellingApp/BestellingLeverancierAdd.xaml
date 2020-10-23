@@ -5,22 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="BestellingLeverancierAdd" Height="450" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="BestellingLeverancierAdd" Height="650" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
-            <Label Name ="lblBestelling" Content="BESTELLING LEVERANCIER ADD" HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="200"/>
+            <Label Name ="lblBestelling" Content="BESTELLING LEVERANCIER " HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="200"/>
             <Separator></Separator>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label  Name ="lblAangemaaktop" Content="Datum" Width="110" />
-                <DatePicker x:Name="dtDatumOpgemaakt"></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Personeelslid" Width="110" />
-                <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
-            </StackPanel>
-
+            
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name="lblLeverancier"  Content="Leverancier" Width="110" />
                 <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
@@ -35,10 +27,21 @@
                 <Label   Content="Aantal" Width="110" />
                 <TextBox x:Name="tbAantal" HorizontalContentAlignment="Center" Width="200" ></TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Lijst" Width="110" />
+                <ListBox x:Name="lbLijst" HorizontalContentAlignment="Center" Width="200" Height="100"></ListBox>
+            </StackPanel>
 
             <StackPanel>
-                <Button Name="btnAdd" Content ="ADD"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnAdd_Click"/>
+                <Button Name="btnAdd" Content ="TOEVOEGEN ANN LIJST"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnAdd_Click" RenderTransformOrigin="0.479,4.1"/>
             </StackPanel>
+            <StackPanel>
+                <Button Name="btnRemove" Content ="VERWIJDER UIT LIJST"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnRemove_Click" RenderTransformOrigin="0.479,4.1"/>
+            </StackPanel>
+            <StackPanel>
+                <Button Name="btnBestel" Content ="BESTELLING"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnBestel_Click" RenderTransformOrigin="0.479,4.1"/>
+            </StackPanel>
+
 
 
         </StackPanel>

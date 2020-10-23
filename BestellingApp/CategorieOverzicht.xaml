@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="CategorieOverzicht" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="CategorieOverzicht" Height="600" Width="550" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblProduct" Content="CATEGORIE OVERZICHT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="220"/>
+            <Separator></Separator>
+            <StackPanel Orientation="Horizontal" Margin="5" >
+                <Label  Name ="lblSort" Content="SORTENOP" Width="80" />
+                
+                <ComboBox x:Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Width="180" Height="32" />
+                <Label  Name ="lblS" Content="  " Width="80" />
+                <ListView Name="listgrid" Width="100" Height="200" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn  DisplayMemberBinding="{Binding CategorieNaam}" Header="Naam" Width="90"></GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,200,5">
+                <Label  Name ="lblLijst" Content="CATEGORIE LIJST" Width="120" />
+                <ListBox x:Name="lbCategorie"  Height="195"    Width="145">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding CategorieNaam}"/>
+                                <TextBlock Text=" "/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+
+
+        </StackPanel>
+    </Border>
 </Window>

@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="PersoneelslidOverzicht" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+         Title="PersoneelslidOverzicht" Height="300" Width="600" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Background="Aquamarine">
+    <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
+        <StackPanel  Margin="20">
+            <Label Name ="lblPersoneel" Content="PERSONEELSLID OVERZICHT" HorizontalAlignment="Center" FontSize="15" Foreground="PaleVioletRed" Width="220"/>
+            <Separator></Separator>
+           
+                <ListView Name="listgrid" Width="500" Height="150" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding p.Voornaam}" Header="Voornaam" Width="90"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding p.Achternaam}" Header="Achternaam" Width="80"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding f. FunctieTitel}" Header="Functie" Width="110"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding p.Usernaam}" Header="Usernaam" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding p.Wachtwoord}" Header="Wachtwoord" Width="100"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        </StackPanel>
+    </Border>
 </Window>

@@ -33,10 +33,8 @@ namespace BestellingApp
             string usernaam = "";
             if (tbUsernaam.Text.Trim()== "")
             {
-                MessageBox.Show("Geef Usernaam a.u.b",
-                "ALERT",
-                MessageBoxButton.OKCancel,
-                MessageBoxImage.Warning);
+                MessageBox.Show("Geef Usernaam a.u.b");
+               
 
             }
             else
@@ -46,10 +44,8 @@ namespace BestellingApp
             string wachtwoord = "";
             if (tbWachtwoord.Password.Trim() == "")
             {
-                MessageBox.Show("Geef Wachtwoord a.u.b",
-                "ALERT",
-                MessageBoxButton.OKCancel,
-                MessageBoxImage.Warning);
+                MessageBox.Show("Geef Wachtwoord a.u.b");
+               
 
             }
             else
@@ -73,16 +69,13 @@ namespace BestellingApp
                         }
                         else
                         {
-                            MessageBox.Show(" Wachtwoord is verkeerd!", "ALERT",
-                    MessageBoxButton.OKCancel,
-                    MessageBoxImage.Warning);
+                            MessageBox.Show(" Wachtwoord is verkeerd!");
+                  
                         }
                     }
                     else
                     {
-                        MessageBox.Show(" Usernaam is verkeerd!", "ALERT",
-                    MessageBoxButton.OKCancel,
-                    MessageBoxImage.Warning);
+                        MessageBox.Show(" Usernaam is verkeerd!");
                     }
                 }
             }

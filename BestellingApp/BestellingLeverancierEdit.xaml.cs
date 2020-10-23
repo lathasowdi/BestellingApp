@@ -23,5 +23,20 @@ namespace BestellingApp
         {
             InitializeComponent();
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cbBestellingKlant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

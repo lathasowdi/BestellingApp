@@ -19,26 +19,18 @@ namespace BestellingApp
     /// </summary>
     public partial class BestellingKlantAdd : Window
     {
-        public BestellingKlantAdd()
+        public Personeelslid loggedinpersoneelid { get; set; }
+
+       
+        public BestellingKlantAdd(Personeelslid loggedin)
         {
             InitializeComponent();
-                UpdatecbPersoneelslid();
+            loggedinpersoneelid = loggedin;
+               
                 Updatecbklant();
                 UpdatecbProduct();
         }
-        private void UpdatecbPersoneelslid()
-        {
-            using (BestellingenEntities ctx = new BestellingenEntities())
-            {
-
-                cbPersoneelslid.ItemsSource = null;
-                var Personeellidquery = ctx.Personeelslid.Select(x => new { lid = x.Voornaam + " " + x.Achternaam, ID = x.PersoneelslidID }).ToList();
-                cbPersoneelslid.DisplayMemberPath = "lid";
-                cbPersoneelslid.SelectedValuePath = "ID";
-                cbPersoneelslid.ItemsSource = Personeellidquery;
-                cbPersoneelslid.SelectedIndex = -1;
-            }
-        }
+        
         private void Updatecbklant()
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
@@ -103,10 +95,7 @@ namespace BestellingApp
             {
                 errorshow += "Select een Product";
             }
-            if (cbPersoneelslid.SelectedIndex < 0)
-            {
-                errorshow += "\r\n" + "Select een Personeelslid a.u.b";
-            }
+           
 
             if (cbKlant.SelectedIndex < 0)
             {
@@ -133,8 +122,8 @@ namespace BestellingApp
                 using (BestellingenEntities ctx = new BestellingenEntities())
                 {
                     Bestelling bestelling = new Bestelling();
-                    bestelling.DatumOpgemaakt = (DateTime)dtDatumOpgemaakt.SelectedDate;
-                    bestelling.PersoneelslidID = (int)cbPersoneelslid.SelectedValue;
+                    bestelling.DatumOpgemaakt = DateTime.Now;
+                    bestelling.PersoneelslidID = loggedinpersoneelid.PersoneelslidID;
                     bestelling.KlantID = (int)cbKlant.SelectedValue;
                     ctx.Bestelling.Add(bestelling);
                     ctx.SaveChanges();
@@ -142,17 +131,8 @@ namespace BestellingApp
                     {
                         BestellingProduct bestellingProduct = new BestellingProduct();
                         bestellingProduct.BestellingID = bestelling.BestellingID;
-                        bestellingProduct.ProductID = (int)cbProduct.SelectedValue;
-                        int aantal = 0;
-                        if (tbAantal.Text.Trim() != "")
-                        {
-                            aantal = Convert.ToInt32(tbAantal.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Geef Aantal a.u.b");
-                        }
-                        bestellingProduct.Aantal = aantal;
+                        bestellingProduct.ProductID = item.ProductID;
+                        bestellingProduct.Aantal = item.Aantal;
                         ctx.BestellingProduct.Add(bestellingProduct);
                         ctx.SaveChanges();
                     }
@@ -165,7 +145,7 @@ namespace BestellingApp
             lbLijst.ItemsSource = null;
            tbAantal.Clear();
             cbProduct.SelectedIndex = -1;
-            cbPersoneelslid.SelectedIndex = -1;
+           
             cbKlant.SelectedIndex = -1;
         }
            

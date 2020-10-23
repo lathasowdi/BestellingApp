@@ -9,18 +9,9 @@
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
-            <Label Name ="lblBestelling" Content="BESTELLING KLANT ADD" HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="160"/>
+            <Label Name ="lblBestelling" Content="BESTELLING KLANT" HorizontalAlignment="Center" FontSize="12" Foreground="PaleVioletRed" Width="160"/>
             <Separator></Separator>
            
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label  Name ="lblAangemaaktop" Content="Datum" Width="110" />
-                <DatePicker x:Name="dtDatumOpgemaakt"></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Personeelslid" Width="110" />
-                <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
-            </StackPanel>
-            
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name="lblKlant"  Content="Klant" Width="110" />
                 <ComboBox x:Name="cbKlant" HorizontalContentAlignment="Center" Width="200" ></ComboBox>

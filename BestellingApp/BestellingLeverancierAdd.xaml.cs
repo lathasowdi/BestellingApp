@@ -19,26 +19,16 @@ namespace BestellingApp
     /// </summary>
     public partial class BestellingLeverancierAdd : Window
     {
-        public BestellingLeverancierAdd()
+        public Personeelslid loggedinpersoneelid { get; set; }
+           
+        public BestellingLeverancierAdd(Personeelslid loggedin)
         {
             InitializeComponent();
-            UpdatecbPersoneelslid();
+            loggedinpersoneelid = loggedin;
             UpdatecbProduct();
             UpdatecbLeverancier();
         }
-        private void UpdatecbPersoneelslid()
-        {
-            using (BestellingenEntities ctx = new BestellingenEntities())
-            {
-
-                cbPersoneelslid.ItemsSource = null;
-                var Personeellidquery = ctx.Personeelslid.Select(x => new { lid = x.Voornaam + " " + x.Achternaam, ID = x.PersoneelslidID }).ToList();
-                cbPersoneelslid.DisplayMemberPath = "lid";
-                cbPersoneelslid.SelectedValuePath = "ID";
-                cbPersoneelslid.ItemsSource = Personeellidquery;
-                cbPersoneelslid.SelectedIndex = 0;
-            }
-        }
+        
         private void UpdatecbProduct()
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
@@ -61,35 +51,111 @@ namespace BestellingApp
                 cbLeverancier.SelectedIndex = 0;
             }
         }
-
+        public List<LeverancierBesteling> LeverancierProductLijst = new List<LeverancierBesteling>();
+       
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            ErrorHandling();
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
-                Bestelling bestelling = new Bestelling();
-                bestelling.DatumOpgemaakt = (DateTime)dtDatumOpgemaakt.SelectedDate;
-                bestelling.PersoneelslidID = (int)cbPersoneelslid.SelectedValue;
-                bestelling.LeverancierID = (int)cbLeverancier.SelectedValue;
-                ctx.Bestelling.Add(bestelling);
-                ctx.SaveChanges();
-                BestellingProduct bestellingProduct = new BestellingProduct();
-                bestellingProduct.BestellingID = bestelling.BestellingID;
-                bestellingProduct.ProductID = (int)cbProduct.SelectedValue;
-                int aantal = 0;
-                if (tbAantal.Text.Trim() != "")
-                {
-                    aantal = Convert.ToInt32(tbAantal.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Geef Aantal a.u.b");
-                }
-                bestellingProduct.Aantal = aantal;
-                ctx.BestellingProduct.Add(bestellingProduct);
-                ctx.SaveChanges();
+                var selectedProduct = ctx.Product.Single(p => p.ProductID == (int)cbProduct.SelectedValue);
+                LeverancierBesteling product = new LeverancierBesteling(selectedProduct.ProductID, selectedProduct.Naam, Convert.ToInt32(tbAantal.Text));
+                LeverancierProductLijst.Add(product);
+                UpdatelbLijst();
             }
-            MessageBox.Show("Bestelling is Toevoegen");
         }
-    }
+        public class LeverancierBesteling
+        {
+            public int ProductID { get; set; }
+            public string Naam { get; set; }
+            public int Aantal { get; set; }
+
+            public LeverancierBesteling(int productid, string naam, int aantal)
+            {
+                ProductID = productid;
+                Naam = naam;
+                Aantal = aantal;
+            }
+        }
+        public void ErrorHandling()
+        {
+            string errorshow = "";
+
+            if (cbProduct.SelectedIndex <= 0)
+            {
+                errorshow += "Select een Product";
+            }
+
+
+            if (cbLeverancier.SelectedIndex < 0)
+            {
+                errorshow += "\r\n" + "Select een Klant a.u.b";
+            }
+
+            if (tbAantal.Text.Trim().Length == 0)
+            {
+
+                errorshow += "\r\n" + "Geef Aantal a.u.b";
+            }
+
+
+            if (errorshow.Trim().Length > 0)
+            {
+                MessageBox.Show(errorshow);
+            }
+        }
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbLijst.SelectedIndex != -1)
+                LeverancierProductLijst.RemoveAt(lbLijst.SelectedIndex);
+            UpdatelbLijst();
+
+        }
+        public void UpdatelbLijst()
+        {
+            lbLijst.ItemsSource = null;
+            lbLijst.ItemsSource = LeverancierProductLijst;
+            lbLijst.DisplayMemberPath = "Naam";
+            lbLijst.SelectedValuePath = "ProductID";
+
+        }
+
+        private void btnBestel_Click(object sender, RoutedEventArgs e)
+        {
+            if(LeverancierProductLijst.Count > 0)
+            {
+                using (BestellingenEntities ctx = new BestellingenEntities())
+                {
+                    Bestelling bestelling = new Bestelling();
+                    bestelling.DatumOpgemaakt = DateTime.Now;
+                    bestelling.PersoneelslidID = loggedinpersoneelid.PersoneelslidID;
+                    bestelling.LeverancierID = (int)cbLeverancier.SelectedValue;
+                    ctx.Bestelling.Add(bestelling);
+                    ctx.SaveChanges();
+                    foreach (var item in LeverancierProductLijst)
+                    {
+                        BestellingProduct bestellingProduct = new BestellingProduct();
+                        bestellingProduct.BestellingID = bestelling.BestellingID;
+                        bestellingProduct.ProductID = item.ProductID;
+                        bestellingProduct.Aantal = item.Aantal;
+                        ctx.BestellingProduct.Add(bestellingProduct);
+                        ctx.SaveChanges();
+                    }
+
+                }
+                MessageBox.Show("Bestelling is Toevoegen");
+            }
+
+           LeverancierProductLijst.Clear();
+            lbLijst.ItemsSource = null;
+            tbAantal.Clear();
+            cbProduct.SelectedIndex = -1;
+
+            cbLeverancier.SelectedIndex = -1;
+        }
+
     }
 }
+    
+
+
