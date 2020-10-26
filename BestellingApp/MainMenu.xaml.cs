@@ -288,7 +288,7 @@ namespace BestellingApp
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-
+            Template controlTemplate = new Template(loggedinpersoneelid);
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

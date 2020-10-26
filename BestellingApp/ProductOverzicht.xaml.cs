@@ -53,7 +53,8 @@ namespace BestellingApp
 
             var product = ctx.Product.ToList();
 
-            lbProducts.ItemsSource = product;
+            lbProducts.ItemsSource = productList;
+            lbProducts.SelectedValuePath = "ProductID";
         }
         public void UpdateQuery()
         {
@@ -125,6 +126,44 @@ namespace BestellingApp
         private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateQuery();
+        }
+
+        private void lbProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int productId = Convert.ToInt32(lbProducts.SelectedValue);
+            
+            
+            BestellingenEntities ctx = new BestellingenEntities();
+            var productList = ctx.Product.Join(
+                           ctx.Categorie,
+                           p => p.CategorieID,
+                           c => c.CategorieID,
+                           (p, c) => new { p, c }).Join(
+                           ctx.Leverancier,
+                           pc => pc.p.LeverancierID,
+                           l => l.LeverancierID,
+                           (pc, l) => new { pc, l }).Where(x => x.pc.p.ProductID == productId).FirstOrDefault(); ;
+            string beschrijf = "";
+            beschrijf = 
+                  $"NAAM:{productList.pc.p.Naam}" + "\n"
+                + $"INKOOPPRIJS:{productList.pc.p.InKoopprijs}" + "\n"
+                + $"MARGE:{productList.pc.p.Marge}" + "\n"
+                + $"EENHEID:{productList.pc.p.Eenheid}" + "\n"
+                + $"BTW:{productList.pc.p.BTW}" + "\n"
+                + $"LEVERANCIE:{productList.l.Contactpersoon}" + "\n"
+                + $"CATEGORIE:{productList.pc.c.CategorieNaam}" + "\n";
+
+          
+            if (lbProducts.Items != null)
+            {
+                lblLijst.Content
+                    = beschrijf;
+
+            }
+            else
+            {
+                lblLijst.Content = "";
+            }
         }
     }
 }

@@ -37,12 +37,19 @@ Oktober 20 2020
 Bestelling tab gewerkt.
 Overzicht tab gewerkt.
 testing en error handling.
+
 Oktober 21 2020
 Learned about listview control and creating and saving word document.
 Overzicht tab gewerkt.
+
 Oktober 22 2020
 Overzicht tab and Bestelling tab gewerkt.
 testing and errorhandling.
+
+Oktober 23 2020
+Overzicht tab gewerkt.
+template voor product informatie aanpassen gewerkt.
+zoeken voor word document.
 
 
 

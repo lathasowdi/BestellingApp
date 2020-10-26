@@ -72,27 +72,28 @@ namespace BestellingApp
 
             //switch (CbSort.SelectedItem)
             //{
+           
+      
+        //    case "ContactPersoon Up":
+        //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Ascending));
+        //        break;
+        //    case "ContactPersoon Down":
+        //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Descending));
+        //        break;
+        //    case "Straatnaam Up":
+        //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Ascending));
+        //        break;
+        //    case "Straatnaam Down":
+        //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Descending));
+        //        break;
+        //    case "Gemeente Up":
+        //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Ascending));
+        //        break;
+        //    case "Gemeente Down":
+        //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Descending));
+        //        break;
 
-            //    case "ContactPersoon Up":
-            //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Ascending));
-            //        break;
-            //    case "ContactPersoon Down":
-            //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Descending));
-            //        break;
-            //    case "Straatnaam Up":
-            //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Ascending));
-            //        break;
-            //    case "Straatnaam Down":
-            //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Descending));
-            //        break;
-            //    case "Gemeente Up":
-            //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Ascending));
-            //        break;
-            //    case "Gemeente Down":
-            //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Descending));
-            //        break;
-
-            UpdateQuery();
+        UpdateQuery();
 
 
 
