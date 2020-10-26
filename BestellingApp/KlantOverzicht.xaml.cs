@@ -29,7 +29,8 @@ namespace BestellingApp
         private void loadlistview()
         {
             BestellingenEntities ctx = new BestellingenEntities();
-            listgrid.ItemsSource = ctx.Klant.ToList();
+            var klant = ctx.Klant.ToList();
+            listgrid.ItemsSource = klant;
             List<string> sortLeverancier = new List<string>()
         {"Voornaam Up",
         "Voornaam Down",
@@ -42,9 +43,11 @@ namespace BestellingApp
         };
             CbSort.ItemsSource = sortLeverancier;
            
-            var klant = ctx.Klant.ToList();
+           
            
            lbklant.ItemsSource = klant;
+            
+            lbklant.SelectedValuePath = "KlantID";
 
         }
         public void UpdateQuery()
@@ -91,7 +94,52 @@ namespace BestellingApp
 
         private void CbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateQuery();
+            if (CbSort.SelectedValue != null)
+            {
+                lbklant.UnselectAll();
+                UpdateQuery();
+            }
+               
+            
+        }
+
+        private void lbklant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbklant.SelectedValue != null)
+            {
+                int klantId = Convert.ToInt32(lbklant.SelectedValue);
+
+
+                BestellingenEntities ctx = new BestellingenEntities();
+                var klant = ctx.Klant.Select(x => x).Where(x => x.KlantID == klantId).FirstOrDefault(); ;
+
+
+                string beschrijf = "";
+                beschrijf =
+                      $"VOORNAAM:{klant.Voornaam}" + "\n"
+                    + $"ACHTERNAAM:{klant.Achternaam}" + "\n"
+                    + $"STRAATNAAM:{klant.Straatnaam}" + "\n"
+                    + $"HUISNUMMER:{klant.Huisnummer}" + "\n"
+                    + $"BUS:{klant.Bus}" + "\n"
+                    + $"POSTCODE:{klant.Postcode}" + "\n"
+                    + $"GEMEENTE:{klant.Gemeente}" + "\n"
+                    + $"TELEFOONNUMMER:{klant.Telefoonnummer}" + "\n"
+                    + $"E-MAIL:{klant.Emailadres}" + "\n"
+                    + $"AANGEMAAKTOP:{klant.AangemaaktOp}" + "\n"
+                    + $"OPMERKING:{klant.Opmerking}" + "\n";
+
+
+                if (lbklant.Items != null)
+                {
+                    lblLijst.Content
+                        = beschrijf;
+
+                }
+                else
+                {
+                    lblLijst.Content = "";
+                }
+            }
         }
     }
    }

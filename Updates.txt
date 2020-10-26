@@ -51,5 +51,9 @@ Overzicht tab gewerkt.
 template voor product informatie aanpassen gewerkt.
 zoeken voor word document.
 
+Oktober 26 2020
+testing and errorhandling.
+template for word document.
+
 
 

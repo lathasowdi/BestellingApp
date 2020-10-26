@@ -28,7 +28,8 @@ namespace BestellingApp
         private void loadlistview()
         {
             BestellingenEntities ctx = new BestellingenEntities();
-            listgrid.ItemsSource = ctx.Leverancier.ToList();
+            var leveranciers = ctx.Leverancier.ToList();
+            listgrid.ItemsSource = leveranciers;
         //    Dictionary<string, string> sortLeverancier = new Dictionary<string, string>()
         //{
            
@@ -56,13 +57,13 @@ namespace BestellingApp
         "Gemeente Up",
         "Gemeente Down"
         };
-            CbSort.ItemsSource = sortLeverancier;
+            cbSort.ItemsSource = sortLeverancier;
 
-            var leveranciers = ctx.Leverancier.ToList();
+            
 
             lbleveranciers.ItemsSource = leveranciers;
 
-
+            lbleveranciers.SelectedValuePath = "LeverancierID";
 
         }
 
@@ -72,28 +73,31 @@ namespace BestellingApp
 
             //switch (CbSort.SelectedItem)
             //{
-           
-      
-        //    case "ContactPersoon Up":
-        //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Ascending));
-        //        break;
-        //    case "ContactPersoon Down":
-        //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Descending));
-        //        break;
-        //    case "Straatnaam Up":
-        //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Ascending));
-        //        break;
-        //    case "Straatnaam Down":
-        //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Descending));
-        //        break;
-        //    case "Gemeente Up":
-        //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Ascending));
-        //        break;
-        //    case "Gemeente Down":
-        //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Descending));
-        //        break;
 
-        UpdateQuery();
+
+            //    case "ContactPersoon Up":
+            //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Ascending));
+            //        break;
+            //    case "ContactPersoon Down":
+            //        view.SortDescriptions.Add(new SortDescription("Contactpersoon", ListSortDirection.Descending));
+            //        break;
+            //    case "Straatnaam Up":
+            //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Ascending));
+            //        break;
+            //    case "Straatnaam Down":
+            //        view.SortDescriptions.Add(new SortDescription("Straatnaam", ListSortDirection.Descending));
+            //        break;
+            //    case "Gemeente Up":
+            //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Ascending));
+            //        break;
+            //    case "Gemeente Down":
+            //        view.SortDescriptions.Add(new SortDescription("Gemeente", ListSortDirection.Descending));
+            //        break;
+            if (cbSort.SelectedValue != null)
+            {
+                lbleveranciers.UnselectAll();
+                UpdateQuery();
+            }
 
 
 
@@ -105,7 +109,7 @@ namespace BestellingApp
                 IQueryable<Leverancier> leveranciers;
 
 
-                switch (CbSort.SelectedItem)
+                switch (cbSort.SelectedItem)
                 {
                     case "ContactPersoon Down":
                         leveranciers = ctx.Leverancier.Select(b => b).OrderByDescending(x => x.Contactpersoon);
@@ -133,5 +137,43 @@ namespace BestellingApp
                 lbleveranciers.ItemsSource = leveranciers.ToList();
             }
         }
+
+        private void lbleveranciers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbleveranciers.SelectedValue != null)
+            {
+                int leverancierID = Convert.ToInt32(lbleveranciers.SelectedValue);
+
+
+                BestellingenEntities ctx = new BestellingenEntities();
+                var leverancier = ctx.Leverancier.Select(x => x).Where(x => x.LeverancierID == leverancierID).FirstOrDefault();
+
+
+                string beschrijf = "";
+                beschrijf =
+                      $"CONTACTPERSOON:{leverancier.Contactpersoon}" + "\n"
+                    + $"TELEFOON:{leverancier.Telefoonnummer}" + "\n"
+                    + $"E-MAIL:{leverancier.Emailadres}" + "\n"
+                    + $"STRAATNAAM:{leverancier.Straatnaam}" + "\n"
+                    + $"HUISNUMMER:{leverancier.Huisnummer}" + "\n"
+                    + $"BUS:{leverancier.Bus}" + "\n"
+                    + $"POSTCODE:{leverancier.Postcode}" + "\n"
+                    + $"GEMEENTE:{leverancier.Gemeente}" + "\n";
+                   
+
+
+                if (lbleveranciers.Items != null)
+                {
+                    lblLijst.Content
+                        = beschrijf;
+
+                }
+                else
+                {
+                    lblLijst.Content = "";
+                }
+            }
+        }
     }
+    
 }

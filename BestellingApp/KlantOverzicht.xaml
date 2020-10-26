@@ -16,8 +16,8 @@
                 <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged" Width="203" Height="44" />
 
 
-                <Label  Name ="lblLijst" Content="  KLANTLIJST " Width="110" />
-                <ListBox x:Name="lbklant"  Height="160"    Width="145">
+                <Label  Name ="lblLijst" Content="  KLANTLIJST " Width="280" />
+                <ListBox x:Name="lbklant"  Height="160"    Width="145" SelectionChanged="lbklant_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <WrapPanel>

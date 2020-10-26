@@ -13,11 +13,11 @@
             <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5" >
                 <Label  Name ="lblSort" Content="SORTENOP" Width="110" />
-                <ComboBox x:Name="CbSort" SelectionChanged="CbSort_SelectionChanged" Width="203" Height="44" />
+                <ComboBox x:Name="cbSort" SelectionChanged="CbSort_SelectionChanged" Width="203" Height="44" />
 
 
-                <Label  Name ="lblLijst" Content="  LEVERANCIER LIJST " Width="140" />
-                <ListBox x:Name="lbleveranciers"  Height="160"    Width="145">
+                <Label  Name ="lblLijst" Content="  LEVERANCIER LIJST " Width="250" />
+                <ListBox x:Name="lbleveranciers"  Height="160"    Width="145" SelectionChanged="lbleveranciers_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <WrapPanel>
