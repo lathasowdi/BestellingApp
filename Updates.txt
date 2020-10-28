@@ -55,5 +55,13 @@ Oktober 26 2020
 testing and errorhandling.
 template for word document.
 
+Oktober 27 2020
+Bestelling tab gewerkt.
+word document gewerkt.
+
+Oktober 28 2020
+testing and error handling.
+alignment and overzicht tab.
+
 
 
