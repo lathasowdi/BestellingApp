@@ -33,10 +33,8 @@ namespace BestellingApp
                 ctx.Categorie.RemoveRange(ctx.Categorie.Where(k => k.CategorieID == selectedCategorie.CategorieID));
                 ctx.SaveChanges();
             }
-            MessageBox.Show("Categorie is verwijderen",
-                "INFO",
-                MessageBoxButton.OKCancel,
-                MessageBoxImage.Exclamation);
+            MessageBox.Show("Categorie is verwijderen");
+                
             updatecombobox();
         }
         public void updatecombobox()

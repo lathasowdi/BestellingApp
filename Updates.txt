@@ -63,5 +63,11 @@ Oktober 28 2020
 testing and error handling.
 alignment and overzicht tab.
 
+Oktober 29 2020
+testing and error handling.
+alignment and overzicht tab.
+saving the order for klant and Leverancier.
+completed project.
+
 
 

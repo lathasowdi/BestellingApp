@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="KlantEdit" Height="625" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="KlantEdit" Height="650" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">

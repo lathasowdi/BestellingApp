@@ -68,8 +68,8 @@ namespace BestellingApp
                 tabKlantBestelling.Visibility = Visibility.Hidden;
                 btnKlantBestellingToevoegen.IsEnabled = false;
                 btnKlantBestellingToevoegen.Visibility = Visibility.Hidden;
-                btnklantBestellingBewerken.IsEnabled = false;
-                btnklantBestellingBewerken.Visibility = Visibility.Hidden;
+                btnklantBestellingBekijken.IsEnabled = false;
+                btnklantBestellingBekijken.Visibility = Visibility.Hidden;
 
             }
             else
@@ -104,8 +104,7 @@ namespace BestellingApp
                 tabAanpassen.Visibility = Visibility.Hidden;
                 btnCreate.IsEnabled = false;
                 btnCreate.Visibility = Visibility.Hidden;
-                btnEdit.IsEnabled = false;
-                btnEdit.Visibility = Visibility.Hidden;
+                
 
             }
         }
@@ -262,13 +261,11 @@ namespace BestellingApp
 
         private void btnklantBestellingBewerken_Click(object sender, RoutedEventArgs e)
         {
-           
+            BestellingEdit bestellingEdit = new BestellingEdit(loggedinpersoneelid);
+            bestellingEdit.Show();
         }
 
-        private void btnKlantBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnLeverancierBestellingToevoegen_Click(object sender, RoutedEventArgs e)
         {
@@ -278,13 +275,11 @@ namespace BestellingApp
 
         private void btnLeverancierBestellingBewerken_Click(object sender, RoutedEventArgs e)
         {
-
+            BestellingLeverancierEdit bestellingLeverancierEdit = new BestellingLeverancierEdit(loggedinpersoneelid);
+            bestellingLeverancierEdit.Show();
         }
 
-        private void btnLeverancierBestellingVerwijderen_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
@@ -292,9 +287,6 @@ namespace BestellingApp
             controlTemplate.Show();
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

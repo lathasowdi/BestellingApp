@@ -17,6 +17,10 @@
                 <Label Name="lblLeverancier"  Content="Leverancier" Width="110" />
                 <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Categorie" Width="110" />
+                <ComboBox x:Name="cbCategorie" HorizontalContentAlignment="Center" Width="200" SelectionChanged="cbCategorie_SelectionChanged" ></ComboBox>
+            </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label   Content="Product" Width="110" />
@@ -41,6 +45,18 @@
             <StackPanel>
                 <Button Name="btnBestel" Content ="BESTELLING"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnBestel_Click" RenderTransformOrigin="0.479,4.1"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="TotaalPrijs" Width="110" />
+                <TextBox x:Name="tbPrijs" HorizontalContentAlignment="Center" Width="200" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Name="lblBestellingLeverancier"   Content="BestellingLeverancier" Width="160" />
+                <ComboBox x:Name="cbBestellingLeverancier" HorizontalContentAlignment="Center" Width="200"   ></ComboBox>
+            </StackPanel>
+            <StackPanel>
+                <Button Name="btnRapport" Content ="RAPPORTERING"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnRapport_Click" RenderTransformOrigin="0.479,4.1"/>
+            </StackPanel>
+
 
 
 

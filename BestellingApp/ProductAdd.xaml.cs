@@ -28,12 +28,12 @@ namespace BestellingApp
                 cbLeverancier.DisplayMemberPath = "Contactpersoon";
                 cbLeverancier.SelectedValuePath = "LeverancierID";
                 cbLeverancier.ItemsSource = Leverancierquery;
-                cbLeverancier.SelectedIndex = 0;
+                cbLeverancier.SelectedIndex =-1;
                 var Categoriequery = ctx.Categorie.Select(k => k).ToList();
                 cbCategorie.DisplayMemberPath = "CategorieNaam";
                 cbCategorie.SelectedValuePath = "CategorieID";
                 cbCategorie.ItemsSource = Categoriequery;
-                cbCategorie.SelectedIndex = 0;
+                cbCategorie.SelectedIndex =-1;
 
             }
         }

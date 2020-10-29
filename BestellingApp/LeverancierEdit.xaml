@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="LeverancierEdit" Height="500" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="LeverancierEdit" Height="550" Width="400" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
@@ -15,7 +15,7 @@
                 <ComboBox x:Name="cbLeverancier" HorizontalContentAlignment="Center" Width="200" DisplayMemberPath="Contactpersoon" SelectedValuePath="LeverancierID" SelectionChanged="cbLeverancier_SelectionChanged" ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Name ="lblContactperson"  Content="CONTACTPERSON" Width="110"/>
+                <Label Name ="lblContactperson"  Content="PERSON" Width="110"/>
                 <TextBox Name ="tbContactperson" Width="200"/>
             </StackPanel>
 
@@ -48,7 +48,7 @@
                 <TextBox Name ="tbGemeente" Width="200"/>
             </StackPanel>
             <StackPanel>
-            <Button Name="btnBewerken" Content ="TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBewerken_Click"/>
+            <Button Name="btnBewerken" Content ="BEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnBewerken_Click"/>
             </StackPanel>
         </StackPanel>
     </Border>

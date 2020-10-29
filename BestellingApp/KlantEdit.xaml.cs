@@ -152,9 +152,8 @@ namespace BestellingApp
                 ctx.Klant.Where(p => p.KlantID == selectedklant.KlantID).FirstOrDefault().AangemaaktOp = datum;
                 ctx.Klant.Where(p => p.KlantID == selectedklant.KlantID).FirstOrDefault().Opmerking = opmerking;
                 ctx.SaveChanges();
-                MessageBox.Show("klant Bewerk is gedaan", "INFO",
-                     MessageBoxButton.OKCancel,
-                     MessageBoxImage.Information);
+                MessageBox.Show("klant Bewerk is gedaan");
+                     
                 updatecombobox();
             }
         }

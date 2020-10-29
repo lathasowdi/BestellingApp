@@ -18,30 +18,21 @@ namespace BestellingApp
     /// Interaction logic for BestellingEdit.xaml
     /// </summary>
     public partial class BestellingEdit : Window
+       
     {
-        public BestellingEdit()
+        public Personeelslid loggedinpersoneelid { get; set; }
+        public BestellingEdit(Personeelslid loggedin)
         {
             InitializeComponent();
+            loggedinpersoneelid = loggedin;
             UpdatecbBestellingKlant();
-            UpdatecbPersoneelslid();
+           
             Updatecbklant();
             UpdatecbProduct();
 
 
         }
-        private void UpdatecbPersoneelslid()
-        {
-            using (BestellingenEntities ctx = new BestellingenEntities())
-            {
-
-                cbPersoneelslid.ItemsSource = null;
-                var Personeellidquery = ctx.Personeelslid.Select(x => new { lid = x.Voornaam + " " + x.Achternaam, ID = x.PersoneelslidID }).ToList();
-                cbPersoneelslid.DisplayMemberPath = "lid";
-                cbPersoneelslid.SelectedValuePath = "ID";
-                cbPersoneelslid.ItemsSource = Personeellidquery;
-                
-            }
-        }
+        
         private void Updatecbklant()
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
@@ -54,6 +45,7 @@ namespace BestellingApp
                 
             }
         }
+        
         private void UpdatecbProduct()
         {
             using (BestellingenEntities ctx = new BestellingenEntities())
@@ -78,7 +70,7 @@ namespace BestellingApp
                 cbBestellingKlant.DisplayMemberPath = "Naam";
                 cbBestellingKlant.SelectedValuePath = "ID";
                 cbBestellingKlant.ItemsSource = klantBestellingen.ToList();
-                cbBestellingKlant.SelectedIndex = 0;
+                cbBestellingKlant.SelectedIndex = -1;
             }
         }
 
@@ -91,12 +83,18 @@ namespace BestellingApp
                     if (ctx.Bestelling.Single(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue) != null)
                     {
                         var selectedBestelling = ctx.Bestelling.Single(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue);
-                        dtDatumOpgemaakt.SelectedDate = selectedBestelling.DatumOpgemaakt;
-                        cbPersoneelslid.SelectedValue = selectedBestelling.PersoneelslidID;
+                        
                         cbKlant.SelectedValue = selectedBestelling.KlantID;
-                        var selectedBestellingProduct = ctx.BestellingProduct.Single(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue);
-                        cbProduct.SelectedValue = selectedBestellingProduct.ProductID;
-                        tbAantal.Text = selectedBestellingProduct.Aantal.ToString();
+                        var selectedBestellingProduct = ctx.BestellingProduct.Where(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue).ToList();
+                        
+                        var JoinedQuery= ctx.BestellingProduct.Join(ctx.Product,
+                            b=>b.ProductID,
+                            p=>p.ProductID,
+                            (b,p)=>new { b, p ,Naam=p.Naam,ID=p.ProductID}).Where(b =>b.b.BestellingID== (int)cbBestellingKlant.SelectedValue).ToList();
+
+                        lbLijst.ItemsSource = JoinedQuery;
+                        lbLijst.DisplayMemberPath = "Naam";
+                        lbLijst.SelectedValuePath = "ID";
                     }
 
                 }
@@ -107,8 +105,7 @@ namespace BestellingApp
             using (BestellingenEntities ctx = new BestellingenEntities())
             {
                 var selectedBestellingklant = ctx.Bestelling.Single(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue);
-                selectedBestellingklant.DatumOpgemaakt = (DateTime)dtDatumOpgemaakt.SelectedDate;
-                selectedBestellingklant.PersoneelslidID = (int)cbPersoneelslid.SelectedValue;
+               
                 selectedBestellingklant.KlantID = (int)cbKlant.SelectedValue;
                 ctx.SaveChanges();
                 var selectedBestellingProduct = ctx.BestellingProduct.Single(b => b.BestellingID == (int)cbBestellingKlant.SelectedValue);
@@ -133,8 +130,42 @@ namespace BestellingApp
                     UpdatecbBestellingKlant();
                 }
             }
+            lbLijst.ItemsSource=null;
+            cbKlant.SelectedIndex = -1;
            
             MessageBox.Show("Bestelling is verwijderen");
+        }
+
+        private void lbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+                if (lbLijst.SelectedValue != null)
+                {
+                    var selectedProduct = ctx.BestellingProduct.Where(x=>x.BestellingID== (int)cbBestellingKlant.SelectedValue).Single(b => b.ProductID == (int)lbLijst.SelectedValue);
+                    tbAantal.Text = selectedProduct.Aantal.ToString();
+                }
+            }
+        }
+
+        private void cbCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (BestellingenEntities ctx = new BestellingenEntities())
+            {
+
+                if (cbCategorie.SelectedIndex >= 0)
+                {
+                    var productLijst = ctx.Product.Select(x => new
+                    {
+                        Naam = x.Naam + " (Prijs: " + (x.InKoopprijs + x.Marge) + ")",
+                        Id = x.ProductID,
+                        CategorieID = x.CategorieID
+                    }).Where(p => p.CategorieID == (int)cbCategorie.SelectedValue).ToList();
+                    cbProduct.DisplayMemberPath = "Naam";
+                    cbProduct.SelectedValuePath = "Id";
+                    cbProduct.ItemsSource = productLijst;
+                }
+            }
         }
     }
 }   

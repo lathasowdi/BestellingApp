@@ -45,9 +45,8 @@ namespace BestellingApp
                 ctx.Klant.RemoveRange(ctx.Klant.Where(k => k.KlantID == selectedklant.KlantID));
                 ctx.SaveChanges();
             }
-            MessageBox.Show("klant is Verwijderen", "INFO",
-                    MessageBoxButton.OKCancel,
-                    MessageBoxImage.Information);
+            MessageBox.Show("klant is Verwijderen");
+                   
             updatecombobox();
         }
     }

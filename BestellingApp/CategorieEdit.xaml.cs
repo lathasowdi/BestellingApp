@@ -55,9 +55,8 @@ namespace BestellingApp
                 ctx.Categorie.Where(p => p.CategorieID == selectedcategorienaam.CategorieID).FirstOrDefault().CategorieNaam= categorienaam;
                 ctx.SaveChanges();
                 cbboxupdate();
-                MessageBox.Show("CategorieNaam is Verandered" ,"INFO",
-                    MessageBoxButton.OKCancel,
-                    MessageBoxImage.Information);
+                MessageBox.Show("CategorieNaam is Verandered");
+                   
             }
         }
     }

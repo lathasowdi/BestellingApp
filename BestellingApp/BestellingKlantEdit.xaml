@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BestellingApp"
         mc:Ignorable="d"
-        Title="BestellingklantAdd" Height="450" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
+        Title="BestellingklantAdd" Height="500" Width="500" FontStyle="Italic" FontSize="12" FontWeight="ExtraBold"
         Background="Aquamarine">
     <Border Background="BlanchedAlmond" BorderBrush="Aquamarine" BorderThickness="2" CornerRadius="20" Margin="20">
         <StackPanel  Margin="20">
@@ -13,36 +13,35 @@
             <Separator></Separator>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name="lblBestellingklant"   Content="BestellingKlant" Width="160" />
-                <ComboBox x:Name="cbBestellingKlant" HorizontalContentAlignment="Center" Width="200" IsEnabled="False" SelectionChanged="cbBestellingKlant_SelectionChanged" ></ComboBox>
+                <ComboBox x:Name="cbBestellingKlant" HorizontalContentAlignment="Center" Width="200"  SelectionChanged="cbBestellingKlant_SelectionChanged" ></ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label  Name ="lblAangemaaktop" Content="Datum" Width="110" />
-                <DatePicker x:Name="dtDatumOpgemaakt"></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label   Content="Personeelslid" Width="110" />
-                <ComboBox x:Name="cbPersoneelslid" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
-            </StackPanel>
+           
 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Name="lblKlant"  Content="Klant" Width="110" />
                 <ComboBox x:Name="cbKlant" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
-
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Categorie" Width="110" />
+                <ComboBox x:Name="cbCategorie" HorizontalContentAlignment="Center" Width="200" SelectionChanged="cbCategorie_SelectionChanged" ></ComboBox>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label   Content="Product" Width="110" />
                 <ComboBox x:Name="cbProduct" HorizontalContentAlignment="Center" Width="200" ></ComboBox>
             </StackPanel>
 
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label   Content="Lijst" Width="110" />
+                <ListBox x:Name="lbLijst" HorizontalContentAlignment="Center" Width="200" Height="100" SelectionChanged="lbLijst_SelectionChanged"></ListBox>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label   Content="Aantal" Width="110" />
                 <TextBox x:Name="tbAantal" HorizontalContentAlignment="Center" Width="200" ></TextBox>
             </StackPanel>
 
-            <StackPanel>
-                <Button Name="btnEdit" Content ="EDIT"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnEdit_Click"/>
-            </StackPanel>
+            
             <StackPanel>
             <Button Name="btnDelete" Content ="DELETE"  Foreground="PaleVioletRed" Margin="60,10"  Click="btnDelete_Click"/>
         </StackPanel>

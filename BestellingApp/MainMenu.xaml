@@ -65,7 +65,7 @@
                             <TabItem Header="PRODUCTINFORMATIEAANPASSEN" x:Name="tabAanpassen">
                                 <StackPanel>
                                     <Button Name="btnCreate" Content ="BESTANDMAKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnCreate_Click"/>
-                                    <Button Name="btnEdit" Content ="BESTANDBEWERKEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnEdit_Click"/>
+                                    
                                    
                                 </StackPanel>
                             </TabItem>
@@ -88,14 +88,14 @@
                             <TabItem Header="KLANT"  x:Name="tabKlantBestelling" >
                                 <StackPanel>
                                     <Button Name="btnKlantBestellingToevoegen" Content =" KLANTBESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnKlantBestellingToevoegen_Click"/>
-                                    <Button Name="btnklantBestellingBewerken" Content =" BEWERKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnklantBestellingBewerken_Click"/>
+                                    <Button Name="btnklantBestellingBekijken" Content =" BEKIJKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnklantBestellingBewerken_Click"/>
                                    
                                 </StackPanel>
                             </TabItem>
                             <TabItem Header="LEVERANCIER" x:Name="tabLeverancierBestelling">
                                 <StackPanel>
                                     <Button Name="btnLeverancierBestellingToevoegen" Content ="BESTELLING TOEVOEGEN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBestellingToevoegen_Click"/>
-                                    <Button Name="btnLeverancierBestellingBewerken" Content =" BEWERKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBestellingBewerken_Click"/>
+                                    <Button Name="btnLeverancierBestellingBewerken" Content =" BEKIJKEN/VERWIJDEREN" BorderBrush="Blue" Foreground="Green" BorderThickness="2" Margin="5" Width="200" RenderTransformOrigin="-0.153,0.658" Click="btnLeverancierBestellingBewerken_Click"/>
                                     
                                 </StackPanel>
                             </TabItem>
